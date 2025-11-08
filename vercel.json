@@ -1,0 +1,20 @@
+{
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "crons": [
+    {
+      "path": "/api/cron/sync-sales",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/check-competitors",
+      "schedule": "0 */6 * * *"
+    },
+    {
+      "path": "/api/cron/send-reminders",
+      "schedule": "0 2 * * *"
+    }
+  ]
+}

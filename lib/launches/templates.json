@@ -1,0 +1,150 @@
+{
+  "templates": [
+    {
+      "id": "fiction-launch",
+      "name": "Fiction Launch",
+      "description": "Complete checklist for launching a fiction book",
+      "tasks": [
+        {
+          "name": "Finalize book cover",
+          "description": "Get final approval on cover design from designer or beta readers",
+          "daysBeforeLaunch": 60
+        },
+        {
+          "name": "Send to ARC readers",
+          "description": "Distribute Advanced Reader Copies to beta readers and influencers",
+          "daysBeforeLaunch": 45
+        },
+        {
+          "name": "Collect testimonials",
+          "description": "Gather quotes and reviews from ARC readers",
+          "daysBeforeLaunch": 30
+        },
+        {
+          "name": "Create cover reveal post",
+          "description": "Design and schedule cover reveal on social media",
+          "daysBeforeLaunch": 21
+        },
+        {
+          "name": "Set up pre-order links",
+          "description": "Configure pre-order links on Amazon, Apple Books, and other platforms",
+          "daysBeforeLaunch": 14
+        },
+        {
+          "name": "Write launch day social posts",
+          "description": "Create 5-10 social media posts for launch day",
+          "daysBeforeLaunch": 7
+        },
+        {
+          "name": "Email list announcement",
+          "description": "Send announcement email to your mailing list",
+          "daysBeforeLaunch": 3
+        },
+        {
+          "name": "Final promo push",
+          "description": "Last-minute promotion on all channels",
+          "daysBeforeLaunch": 1
+        },
+        {
+          "name": "Launch day blitz",
+          "description": "Post on social media, engage with readers, monitor sales",
+          "daysBeforeLaunch": 0
+        },
+        {
+          "name": "Post-launch follow-up",
+          "description": "Send thank you emails, share reviews, plan next steps",
+          "daysBeforeLaunch": -3
+        }
+      ]
+    },
+    {
+      "id": "minimal-launch",
+      "name": "Minimal Launch",
+      "description": "Lightweight checklist for authors with existing audience",
+      "tasks": [
+        {
+          "name": "Finalize book",
+          "description": "Final proofread and formatting",
+          "daysBeforeLaunch": 14
+        },
+        {
+          "name": "Set up sales links",
+          "description": "Configure links on all platforms",
+          "daysBeforeLaunch": 7
+        },
+        {
+          "name": "Announce to email list",
+          "description": "Send launch announcement",
+          "daysBeforeLaunch": 3
+        },
+        {
+          "name": "Social media posts",
+          "description": "Post on social media",
+          "daysBeforeLaunch": 1
+        },
+        {
+          "name": "Launch day",
+          "description": "Monitor sales and engage with readers",
+          "daysBeforeLaunch": 0
+        }
+      ]
+    },
+    {
+      "id": "nonfiction-launch",
+      "name": "Non-Fiction Launch",
+      "description": "Checklist for launching a non-fiction book",
+      "tasks": [
+        {
+          "name": "Finalize manuscript",
+          "description": "Complete final edits and formatting",
+          "daysBeforeLaunch": 60
+        },
+        {
+          "name": "Send to beta readers",
+          "description": "Distribute to beta readers for feedback",
+          "daysBeforeLaunch": 45
+        },
+        {
+          "name": "Collect testimonials",
+          "description": "Get endorsements from experts in your field",
+          "daysBeforeLaunch": 30
+        },
+        {
+          "name": "Create media kit",
+          "description": "Prepare press release and media materials",
+          "daysBeforeLaunch": 21
+        },
+        {
+          "name": "Pitch to media",
+          "description": "Send pitches to podcasts, blogs, and publications",
+          "daysBeforeLaunch": 14
+        },
+        {
+          "name": "Set up pre-orders",
+          "description": "Enable pre-orders on all platforms",
+          "daysBeforeLaunch": 10
+        },
+        {
+          "name": "Create launch content",
+          "description": "Write blog posts, social content, email sequences",
+          "daysBeforeLaunch": 7
+        },
+        {
+          "name": "Final promotion",
+          "description": "Last push before launch",
+          "daysBeforeLaunch": 2
+        },
+        {
+          "name": "Launch day",
+          "description": "Go live and monitor",
+          "daysBeforeLaunch": 0
+        },
+        {
+          "name": "Follow-up outreach",
+          "description": "Thank reviewers, share results",
+          "daysBeforeLaunch": -5
+        }
+      ]
+    }
+  ]
+}

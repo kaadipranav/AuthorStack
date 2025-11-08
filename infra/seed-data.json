@@ -1,0 +1,231 @@
+{
+  "description": "AuthorStack Seed Data Reference",
+  "note": "This JSON file documents the test data created by seed.sql",
+  "testUser": {
+    "email": "test@authorstack.com",
+    "password": "TestPassword123!",
+    "subscriptionTier": "pro",
+    "whopCustomerId": "whop_test_customer_123",
+    "note": "Create this user manually in Supabase Auth, then copy the UUID"
+  },
+  "books": [
+    {
+      "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "title": "The Art of Book Marketing",
+      "author": "Sarah Johnson",
+      "isbn": "978-1234567890",
+      "asin": "B0ABC123DEF",
+      "genre": "Non-Fiction",
+      "platforms": ["amazon", "gumroad"],
+      "createdDaysAgo": 60
+    },
+    {
+      "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "title": "Midnight in the Garden",
+      "author": "Sarah Johnson",
+      "isbn": "978-0987654321",
+      "asin": "B0XYZ789GHI",
+      "genre": "Fiction",
+      "platforms": ["amazon", "apple"],
+      "createdDaysAgo": 45
+    }
+  ],
+  "platformConnections": [
+    {
+      "id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+      "platformName": "amazon",
+      "isActive": true,
+      "lastSyncedHoursAgo": 2
+    },
+    {
+      "id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+      "platformName": "gumroad",
+      "isActive": true,
+      "lastSyncedHoursAgo": 2
+    }
+  ],
+  "salesData": {
+    "description": "14 days of sales data for 2 books across 2 platforms",
+    "book1Amazon": {
+      "bookId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "platform": "amazon",
+      "totalRecords": 14,
+      "totalUnits": 128,
+      "totalRevenue": 639.12,
+      "totalPageReads": 34280,
+      "currency": "USD",
+      "dateRange": "last 14 days"
+    },
+    "book1Gumroad": {
+      "bookId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "platform": "gumroad",
+      "totalRecords": 7,
+      "totalUnits": 20,
+      "totalRevenue": 199.80,
+      "currency": "USD",
+      "dateRange": "last 14 days"
+    },
+    "book2Amazon": {
+      "bookId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "platform": "amazon",
+      "totalRecords": 7,
+      "totalUnits": 38,
+      "totalRevenue": 189.70,
+      "totalPageReads": 9200,
+      "currency": "USD",
+      "dateRange": "last 14 days"
+    }
+  },
+  "launchChecklist": {
+    "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "bookId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "launchDateDaysFromNow": 30,
+    "status": "active",
+    "tasks": [
+      {
+        "id": "10101010-1010-1010-1010-101010101010",
+        "name": "Finalize book cover",
+        "description": "Get final approval on cover design",
+        "dueDaysFromNow": 25,
+        "completed": true,
+        "order": 1
+      },
+      {
+        "id": "20202020-2020-2020-2020-202020202020",
+        "name": "Send to beta readers",
+        "description": "Distribute ARC to beta readers for feedback",
+        "dueDaysFromNow": 20,
+        "completed": true,
+        "order": 2
+      },
+      {
+        "id": "30303030-3030-3030-3030-303030303030",
+        "name": "Create launch day social media posts",
+        "description": "Write and schedule 5 social media posts for launch day",
+        "dueDaysFromNow": 5,
+        "completed": false,
+        "order": 3
+      },
+      {
+        "id": "40404040-4040-4040-4040-404040404040",
+        "name": "Set up pre-order links",
+        "description": "Configure pre-order links on all platforms",
+        "dueDaysFromNow": 3,
+        "completed": false,
+        "order": 4
+      },
+      {
+        "id": "50505050-5050-5050-5050-505050505050",
+        "name": "Launch day promotion",
+        "description": "Execute launch day marketing blitz",
+        "dueDaysFromNow": 30,
+        "completed": false,
+        "order": 5
+      }
+    ]
+  },
+  "trackedCompetitors": [
+    {
+      "id": "60606060-6060-6060-6060-606060606060",
+      "bookAsin": "B001COMPETITOR1",
+      "title": "The Complete Guide to Self-Publishing",
+      "author": "Jane Smith",
+      "genre": "Non-Fiction",
+      "createdDaysAgo": 14
+    },
+    {
+      "id": "70707070-7070-7070-7070-707070707070",
+      "bookAsin": "B002COMPETITOR2",
+      "title": "Marketing Your Book Successfully",
+      "author": "John Doe",
+      "genre": "Non-Fiction",
+      "createdDaysAgo": 10
+    }
+  ],
+  "priceHistory": [
+    {
+      "id": "80808080-8080-8080-8080-808080808080",
+      "competitorId": "60606060-6060-6060-6060-606060606060",
+      "platform": "amazon",
+      "price": 19.99,
+      "currency": "USD",
+      "checkedDaysAgo": 7
+    },
+    {
+      "id": "90909090-9090-9090-9090-909090909090",
+      "competitorId": "60606060-6060-6060-6060-606060606060",
+      "platform": "amazon",
+      "price": 17.99,
+      "currency": "USD",
+      "checkedDaysAgo": 3,
+      "note": "Price dropped $2"
+    },
+    {
+      "id": "a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0",
+      "competitorId": "70707070-7070-7070-7070-707070707070",
+      "platform": "amazon",
+      "price": 24.99,
+      "currency": "USD",
+      "checkedDaysAgo": 7
+    },
+    {
+      "id": "b0b0b0b0-b0b0-b0b0-b0b0-b0b0b0b0b0b0",
+      "competitorId": "70707070-7070-7070-7070-707070707070",
+      "platform": "amazon",
+      "price": 22.99,
+      "currency": "USD",
+      "checkedDaysAgo": 3,
+      "note": "Price dropped $2"
+    }
+  ],
+  "marketingEvents": [
+    {
+      "id": "c0c0c0c0-c0c0-c0c0-c0c0-c0c0c0c0c0c0",
+      "eventType": "social_post",
+      "bookId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "eventDateDaysFromNow": 5,
+      "eventTime": "09:00:00",
+      "description": "Post about book launch on Twitter and Instagram",
+      "completed": false
+    },
+    {
+      "id": "d0d0d0d0-d0d0-d0d0-d0d0-d0d0d0d0d0d0",
+      "eventType": "email_campaign",
+      "bookId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "eventDateDaysFromNow": 7,
+      "eventTime": "10:00:00",
+      "description": "Send launch announcement email to subscribers",
+      "completed": false
+    },
+    {
+      "id": "e0e0e0e0-e0e0-e0e0-e0e0-e0e0e0e0e0e0",
+      "eventType": "promotion",
+      "bookId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "eventDateDaysFromNow": 14,
+      "eventTime": "00:00:00",
+      "description": "Launch 50% off promotion for first 100 copies",
+      "completed": false
+    }
+  ],
+  "statistics": {
+    "totalProfiles": 1,
+    "totalBooks": 2,
+    "totalPlatformConnections": 2,
+    "totalSalesRecords": 21,
+    "totalSalesUnits": 186,
+    "totalSalesRevenue": 1028.62,
+    "totalLaunchChecklists": 1,
+    "totalChecklistTasks": 5,
+    "totalTrackedCompetitors": 2,
+    "totalPriceHistoryRecords": 4,
+    "totalMarketingEvents": 3
+  },
+  "importantNotes": [
+    "Replace 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with your actual test user UUID",
+    "Create test user in Supabase Auth BEFORE running seed.sql",
+    "All UUIDs in seed.sql are hardcoded for consistency",
+    "Sales data spans the last 14 days from current date",
+    "Launch checklist is set for 30 days from now",
+    "Test user has 'pro' subscription tier"
+  ]
+}
