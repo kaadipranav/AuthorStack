@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { Card } from '@/components/Card';
+import { supabase } from '@/utils/supabase/client';
 
 export default function SignupPage() {
   const [email, setEmail] = useState('');
@@ -12,6 +14,8 @@ export default function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,13 +26,45 @@ export default function SignupPage() {
       return;
     }
 
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      // TODO: Implement Supabase signup
-      console.log('Signup attempt:', { email, password });
-    } catch (err) {
-      setError('Failed to create account. Please try again.');
+      // 1. Sign up the user
+      const { data: authData, error: signUpError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
+
+      if (signUpError) {
+        throw signUpError;
+      }
+
+      // 2. Create a profile for the user
+      if (authData.user) {
+        const { error: profileError } = await supabase
+          .from('profiles')
+          .insert([{ id: authData.user.id, email }]);
+
+        if (profileError) {
+          console.error('Error creating profile:', profileError);
+          // Continue anyway as the user is created in auth
+        }
+      }
+
+      // 3. Show success message and redirect to login
+      alert('Please check your email to confirm your account!');
+      router.push('/auth/login');
+    } catch (err: any) {
+      console.error('Signup error:', err);
+      setError(err.message || 'Failed to create account. Please try again.');
     } finally {
       setIsLoading(false);
     }
