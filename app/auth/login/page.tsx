@@ -20,20 +20,32 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     setIsLoading(true);
+    console.log('Login attempt started');
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      console.log('Attempting to sign in with email:', email);
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
+      console.log('Sign in response:', { data, error });
+
       if (error) {
+        console.error('Login error:', error);
         throw error;
       }
 
-      // Redirect to dashboard on successful login
-      router.push('/dashboard');
+      if (data?.user) {
+        console.log('Login successful, user:', data.user);
+        // Force a hard refresh to ensure auth state is updated
+        window.location.href = '/dashboard';
+      } else {
+        console.error('No user data in response');
+        setError('Login successful but no user data returned');
+      }
     } catch (err: any) {
+      console.error('Login error:', err);
       setError(err.message || 'Failed to login. Please try again.');
     } finally {
       setIsLoading(false);
