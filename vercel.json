@@ -1,11 +1,11 @@
 {
-  "buildCommand": "pnpm build",
-  "devCommand": "pnpm dev",
-  "installCommand": "pnpm install",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
   "framework": "nextjs",
   "crons": [
     {
-      "path": "/api/cron/sync-sales",
+      "path": "/api/platforms/sync",
       "schedule": "0 2 * * *"
     },
     {

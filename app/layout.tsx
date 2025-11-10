@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Analytics } from '@/components/Analytics';
+import { Inter } from 'next/font/google';
+import { Navigation } from '@/components/Navigation';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'AuthorStack - Book Business Dashboard',
@@ -15,15 +19,22 @@ export const metadata: Metadata = {
   },
 };
 
+const inter = Inter({ subsets: ['latin'] });
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} min-h-screen bg-background`}>
+        <Navigation />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Toaster />
+        <Analytics />
       </body>
     </html>
   );

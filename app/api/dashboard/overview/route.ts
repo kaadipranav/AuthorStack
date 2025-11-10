@@ -1,6 +1,7 @@
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
+import { handleApiError } from '@/lib/errors/handler';
 
 export async function GET() {
   try {
@@ -106,10 +107,6 @@ export async function GET() {
       lastUpdated: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Dashboard overview error:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch dashboard overview' },
-      { status: 500 }
-    );
+    return handleApiError(error, { endpoint: '/api/dashboard/overview' });
   }
 }
