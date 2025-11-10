@@ -1,79 +1,122 @@
 import Link from 'next/link';
-import { BookOpen, TrendingUp, Target, Zap } from 'lucide-react';
+import { BookOpen, TrendingUp, Target, Zap, ArrowRight, Check, BarChart3, Users, Rocket } from 'lucide-react';
+import { Button } from '@/components/Button';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-paper paper-texture">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
+      <nav className="sticky top-0 z-50 bg-surface border-b border-stroke backdrop-blur-sm bg-opacity-95">
         <div className="container-custom py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <BookOpen className="w-8 h-8 text-primary" />
-            <span className="text-2xl font-bold text-primary">AuthorStack</span>
-          </div>
-          <div className="flex gap-4">
-            <Link href="/auth/login" className="btn-secondary">
-              Login
+          <Link href="/" className="flex items-center gap-2 group">
+            <BookOpen className="w-8 h-8 text-burgundy transition-smooth group-hover:scale-110" />
+            <span className="font-heading text-2xl font-bold text-ink">AuthorStack</span>
+          </Link>
+          <div className="flex gap-3">
+            <Link href="/auth/login">
+              <Button variant="ghost" size="sm">Login</Button>
             </Link>
-            <Link href="/auth/signup" className="btn-primary">
-              Sign Up
+            <Link href="/auth/signup">
+              <Button variant="primary" size="sm">Get Started Free</Button>
             </Link>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="container-custom py-20 text-center">
-        <h1 className="text-5xl font-bold text-gray-900 mb-6">
-          Manage Your Book Business in One Place
-        </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Stop logging into 10 different platforms. AuthorStack aggregates your sales, tracks
-          competitors, and helps you launch books successfully.
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Link href="/auth/signup" className="btn-primary text-lg px-8 py-3">
-            Get Started Free
-          </Link>
-          <button className="btn-secondary text-lg px-8 py-3">
-            Watch Demo
-          </button>
+      <section className="container-custom py-24 lg:py-32">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Social Proof Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-burgundy bg-opacity-10 border border-burgundy rounded-full mb-8">
+            <Users size={16} className="text-burgundy" />
+            <span className="text-sm font-medium text-burgundy">Join 500+ indie authors growing their book business</span>
+          </div>
+          
+          <h1 className="font-heading text-5xl lg:text-6xl font-bold text-ink mb-6 leading-tight">
+            Your Book Business,
+            <br />
+            <span className="text-burgundy">Beautifully Organized</span>
+          </h1>
+          
+          <p className="text-xl text-charcoal mb-10 max-w-2xl mx-auto leading-relaxed">
+            Stop juggling 10 different platforms. AuthorStack brings all your sales data, competitor insights, and launch tools into one elegant dashboard.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link href="/auth/signup">
+              <Button variant="primary" size="lg" className="group">
+                Start Free Trial
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-smooth" />
+              </Button>
+            </Link>
+            <Button variant="secondary" size="lg">
+              <BarChart3 size={20} />
+              View Live Demo
+            </Button>
+          </div>
+          
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-charcoal">
+            <div className="flex items-center gap-2">
+              <Check size={16} className="text-forest" />
+              <span>No credit card required</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check size={16} className="text-forest" />
+              <span>14-day free trial</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check size={16} className="text-forest" />
+              <span>Cancel anytime</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-white py-20">
+      <section className="bg-surface py-20">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-center mb-16">Why Authors Choose AuthorStack</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-4xl font-bold text-ink mb-4">Everything You Need to Succeed</h2>
+            <p className="text-lg text-charcoal max-w-2xl mx-auto">Built by authors, for authors. Every feature designed to save you time and grow your revenue.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: TrendingUp,
                 title: 'Unified Dashboard',
-                description: 'See all your sales from Amazon, Gumroad, and more in one place',
+                description: 'See all your sales from Amazon KDP, Gumroad, Apple Books, and more in one elegant view',
+                stat: '10+ platforms',
               },
               {
                 icon: Target,
                 title: 'Competitor Tracking',
-                description: 'Monitor competitor prices and get alerts when they change',
+                description: 'Monitor competitor prices and rankings. Get instant alerts when they make changes',
+                stat: 'Real-time alerts',
+              },
+              {
+                icon: Rocket,
+                title: 'Launch Checklists',
+                description: 'Pre-built 30/60/90 day templates ensure you never miss a critical launch task',
+                stat: '50+ tasks',
               },
               {
                 icon: Zap,
-                title: 'Launch Checklists',
-                description: 'Pre-built templates to ensure successful book launches',
-              },
-              {
-                icon: BookOpen,
                 title: 'A/B Testing',
-                description: 'Test different covers and descriptions to maximize sales',
+                description: 'Test different covers, titles, and descriptions to find what sells best',
+                stat: 'Boost sales 30%',
               },
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="card text-center">
-                  <Icon className="w-12 h-12 text-accent mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                <div key={idx} className="group bg-surface border border-stroke rounded-card p-6 hover:shadow-elevated transition-smooth duration-normal cursor-pointer">
+                  <div className="w-12 h-12 bg-burgundy bg-opacity-10 rounded-card flex items-center justify-center mb-4 group-hover:bg-opacity-20 transition-smooth">
+                    <Icon className="w-6 h-6 text-burgundy" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-ink mb-2">{feature.title}</h3>
+                  <p className="text-charcoal text-sm mb-3 leading-relaxed">{feature.description}</p>
+                  <span className="inline-block px-2 py-1 bg-glass rounded text-xs font-medium text-burgundy">{feature.stat}</span>
                 </div>
               );
             })}
@@ -84,18 +127,23 @@ export default function Home() {
       {/* Pricing Section */}
       <section className="py-20">
         <div className="container-custom">
-          <h2 className="text-4xl font-bold text-center mb-16">Simple, Transparent Pricing</h2>
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-4xl font-bold text-ink mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-lg text-charcoal">Start free, upgrade as you grow. No hidden fees.</p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 name: 'Free',
                 price: '$0',
                 features: ['1 Book', '1 Platform', 'Basic Dashboard', 'Launch Checklist'],
+                cta: 'Start Free',
               },
               {
                 name: 'Pro',
                 price: '$19',
                 period: '/month',
+                badge: 'Most Popular',
                 features: [
                   'Unlimited Books',
                   'All Platforms',
@@ -105,6 +153,7 @@ export default function Home() {
                   'Priority Support',
                 ],
                 highlighted: true,
+                cta: 'Start 14-Day Trial',
               },
               {
                 name: 'Enterprise',
@@ -117,28 +166,38 @@ export default function Home() {
                   'API Access',
                   'Dedicated Manager',
                 ],
+                cta: 'Contact Sales',
               },
             ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`card ${plan.highlighted ? 'ring-2 ring-accent transform scale-105' : ''}`}
+                className={`relative bg-surface border rounded-card p-8 ${
+                  plan.highlighted ? 'border-burgundy shadow-elevated scale-105' : 'border-stroke'
+                }`}
               >
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                {plan.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-burgundy text-white text-xs font-medium rounded-full">
+                    {plan.badge}
+                  </div>
+                )}
+                <h3 className="font-heading text-2xl font-bold text-ink mb-2">{plan.name}</h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  {plan.period && <span className="text-gray-600">{plan.period}</span>}
+                  <span className="font-mono text-5xl font-bold text-ink">{plan.price}</span>
+                  {plan.period && <span className="text-charcoal">{plan.period}</span>}
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, fidx) => (
-                    <li key={fidx} className="flex items-center gap-2">
-                      <span className="text-accent">✓</span>
-                      {feature}
+                    <li key={fidx} className="flex items-center gap-2 text-sm">
+                      <Check size={16} className="text-forest flex-shrink-0" />
+                      <span className="text-charcoal">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <button className={plan.highlighted ? 'btn-accent w-full' : 'btn-secondary w-full'}>
-                  Get Started
-                </button>
+                <Link href="/auth/signup">
+                  <Button variant={plan.highlighted ? 'primary' : 'secondary'} className="w-full">
+                    {plan.cta}
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>
@@ -146,75 +205,90 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary text-white py-20">
+      <section className="bg-burgundy text-white py-20">
         <div className="container-custom text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Grow Your Book Business?</h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Join hundreds of indie authors who are using AuthorStack to manage their sales and
-            launches.
+          <h2 className="font-heading text-4xl font-bold mb-6">Ready to Grow Your Book Business?</h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+            Join hundreds of indie authors who are using AuthorStack to manage their sales and launches.
           </p>
-          <Link href="/auth/signup" className="btn-accent text-lg px-8 py-3">
-            Start Free Today
+          <Link href="/auth/signup">
+            <Button variant="secondary" size="lg" className="bg-white text-burgundy hover:bg-opacity-90">
+              Start Free Today
+              <ArrowRight size={20} />
+            </Button>
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      <footer className="bg-ink text-charcoal py-12 border-t border-stroke">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="text-white font-semibold mb-4">AuthorStack</h4>
-              <p>The all-in-one dashboard for indie authors.</p>
+              <div className="flex items-center gap-2 mb-4">
+                <BookOpen className="w-6 h-6 text-burgundy" />
+                <span className="font-heading text-lg font-bold text-white">AuthorStack</span>
+              </div>
+              <p className="text-sm leading-relaxed">The all-in-one dashboard for indie authors to manage, track, and grow their book business.</p>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Product</h4>
-              <ul className="space-y-2">
+              <h4 className="font-heading text-white font-semibold mb-4">Product</h4>
+              <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#features" className="hover:text-white transition-smooth">
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#pricing" className="hover:text-white transition-smooth">
                     Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="/auth/signup" className="hover:text-white transition-smooth">
+                    Sign Up
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2">
+              <h4 className="font-heading text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#" className="hover:text-white transition-smooth">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="#" className="hover:text-white transition-smooth">
                     Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-smooth">
+                    Contact
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
+              <h4 className="font-heading text-white font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Privacy
+                  <a href="#" className="hover:text-white transition-smooth">
+                    Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Terms
+                  <a href="#" className="hover:text-white transition-smooth">
+                    Terms of Service
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center">
-            <p>&copy; 2024 AuthorStack. All rights reserved.</p>
+          <div className="border-t border-stroke pt-8 text-center">
+            <p className="text-sm">&copy; 2024 AuthorStack. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -17,8 +17,8 @@ export default function DashboardPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">Sales Dashboard</h1>
-        <p className="text-gray-600">
+        <h1 className="font-heading text-display text-ink mb-2">Sales Dashboard</h1>
+        <p className="text-charcoal">
           Last updated: {overview?.lastUpdated ? new Date(overview.lastUpdated).toLocaleString() : 'Loading...'}
         </p>
       </div>
