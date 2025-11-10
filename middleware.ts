@@ -2,6 +2,13 @@ import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+/**
+ * Pro/Enterprise protected routes
+ * These routes require a paid subscription
+ */
+const PRO_ROUTES = ['/ab-tests', '/calendar'];
+const ENTERPRISE_ROUTES: string[] = []; // Add enterprise-only routes here
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -30,6 +37,39 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
+  // Protect Pro/Enterprise routes
+  if (user) {
+    // Check if route requires Pro subscription
+    const requiresPro = PRO_ROUTES.some((route) => pathname.startsWith(route));
+    const requiresEnterprise = ENTERPRISE_ROUTES.some((route) =>
+      pathname.startsWith(route)
+    );
+
+    if (requiresPro || requiresEnterprise) {
+      // Get user's subscription tier
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('subscription_tier')
+        .eq('id', user.id)
+        .single();
+
+      const subscriptionTier = profile?.subscription_tier || 'free';
+
+      // Check access
+      if (requiresEnterprise && subscriptionTier !== 'enterprise') {
+        return NextResponse.redirect(
+          new URL('/pricing?upgrade=enterprise', request.url)
+        );
+      }
+
+      if (requiresPro && subscriptionTier === 'free') {
+        return NextResponse.redirect(
+          new URL('/pricing?upgrade=pro', request.url)
+        );
+      }
+    }
+  }
+
   return res;
 }
 
@@ -39,5 +79,8 @@ export const config = {
     '/dashboard/:path*',
     // Redirect authenticated users from auth pages
     '/auth/:path*',
+    // Protect Pro routes
+    '/ab-tests/:path*',
+    '/calendar/:path*',
   ],
 };

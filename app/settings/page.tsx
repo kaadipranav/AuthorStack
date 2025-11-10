@@ -79,12 +79,24 @@ export default async function SettingsPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Billing
                   </label>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm mb-2">
                     Manage your subscription and billing information through Whop.
                   </p>
-                  <Button variant="secondary" size="sm" className="mt-2">
-                    Manage Billing
-                  </Button>
+                  {profile?.whop_customer_id ? (
+                    <a
+                      href={`https://whop.com/account/subscriptions`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="secondary" size="sm" className="mt-2">
+                        Manage Billing
+                      </Button>
+                    </a>
+                  ) : (
+                    <p className="text-sm text-gray-500 mt-2">
+                      Billing management will be available after your subscription is activated.
+                    </p>
+                  )}
                 </div>
               )}
             </div>

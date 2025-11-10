@@ -13,24 +13,41 @@ export function UpgradeModal({ children }: UpgradeModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<'pro' | 'enterprise' | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleUpgrade = async (plan: 'pro' | 'enterprise') => {
     setSelectedPlan(plan);
     setIsProcessing(true);
+    setError(null);
 
-    // Simulate API call to Whop
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Call Whop checkout API
+      const response = await fetch('/api/payments/create-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ plan }),
+      });
 
-    console.log(`Upgrading to ${plan} plan...`);
-    // TODO: Call Whop API here
-    // const response = await fetch('/api/billing/upgrade', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ plan }),
-    // });
+      const data = await response.json();
 
-    setIsProcessing(false);
-    setSelectedPlan(null);
-    setIsOpen(false);
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create checkout session');
+      }
+
+      if (data.checkoutUrl) {
+        // Redirect to Whop checkout
+        window.location.href = data.checkoutUrl;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+    } catch (err) {
+      console.error('Error creating checkout session:', err);
+      setError(err instanceof Error ? err.message : 'An error occurred');
+      setIsProcessing(false);
+      setSelectedPlan(null);
+    }
   };
 
   return (
@@ -145,10 +162,18 @@ export function UpgradeModal({ children }: UpgradeModalProps) {
                 </div>
               </div>
 
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-900">
+                  <p>
+                    <strong>Error:</strong> {error}
+                  </p>
+                </div>
+              )}
+
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-900">
                 <p>
-                  <strong>Note:</strong> This is a demo modal. In production, this will redirect to
-                  Whop for payment processing.
+                  <strong>Note:</strong> You will be redirected to Whop to complete your payment.
+                  Your subscription will be activated immediately after payment.
                 </p>
               </div>
             </CardContent>
