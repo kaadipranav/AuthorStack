@@ -1,15 +1,18 @@
 'use client';
 
 import { useDashboardOverview, useDashboardCharts } from '@/lib/hooks/useDashboard';
+import { useForecast } from '@/lib/hooks/useForecast';
 import { RevenueCard } from '@/components/dashboard/RevenueCard';
 import { SalesChart } from '@/components/dashboard/SalesChart';
 import { PlatformBreakdown } from '@/components/dashboard/PlatformBreakdown';
 import { BookPerformanceTable } from '@/components/dashboard/BookPerformanceTable';
+import { ForecastCard } from '@/components/dashboard/ForecastCard';
 import { DollarSign, ShoppingCart, BookOpen } from 'lucide-react';
 
 export default function DashboardPage() {
   const { data: overview, isLoading: overviewLoading } = useDashboardOverview();
   const { data: charts, isLoading: chartsLoading } = useDashboardCharts(30);
+  const { data: forecast, isLoading: forecastLoading } = useForecast(3);
 
   return (
     <div>
@@ -41,6 +44,11 @@ export default function DashboardPage() {
           isLoading={overviewLoading}
           icon={<BookOpen className="w-5 h-5" />}
         />
+      </div>
+
+      {/* Forecast */}
+      <div className="mb-8">
+        <ForecastCard data={forecast || null} isLoading={forecastLoading} />
       </div>
 
       {/* Charts */}
