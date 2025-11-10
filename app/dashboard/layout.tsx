@@ -10,8 +10,21 @@ export const metadata = {
 };
 
 export default async function DashboardLayout({ children }: { children: ReactNode }) {
+  // Get user and profile - middleware ensures user exists
   const user = await getCurrentUser();
   const profile = await getUserProfile();
+
+  // If user doesn't exist, show loading state (middleware will redirect)
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-paper paper-texture flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-burgundy mx-auto mb-4"></div>
+          <p className="text-charcoal">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-paper paper-texture">
@@ -25,7 +38,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
       <div className="pl-60 transition-all duration-normal">
         {/* Topbar - Sticky Top */}
         <Topbar 
-          user={user ? { email: user.email || '', name: profile?.full_name } : undefined}
+          user={{ email: user.email || '', name: profile?.full_name }}
           subscriptionTier={profile?.subscription_tier}
         />
         
