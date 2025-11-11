@@ -26,9 +26,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden py-24 lg:py-32">
         {/* Watermark Background Elements */}
-        <div className="absolute inset-0 pointer-events-none opacity-5">
+        <div className="absolute inset-0 pointer-events-none">
           {/* Book Icon Shadow */}
-          <svg className="absolute w-96 h-96 text-ink" viewBox="0 0 200 200" fill="currentColor" style={{ top: '8vh', right: '12vw' }}>
+          <svg className="absolute w-96 h-96 text-ink opacity-10 hidden sm:block -rotate-2" viewBox="0 0 200 200" fill="currentColor" style={{ top: '8vh', right: '8vw' }}>
             <path d="M50 20 L150 20 Q160 20 160 30 L160 170 Q160 180 150 180 L50 180 Q40 180 40 170 L40 30 Q40 20 50 20 M100 20 L100 180" strokeWidth="2" stroke="currentColor" fill="none"/>
             <circle cx="100" cy="60" r="8" fill="currentColor"/>
             <path d="M70 80 Q100 90 130 80" stroke="currentColor" strokeWidth="1.5" fill="none"/>
@@ -36,7 +36,7 @@ export default function Home() {
             <path d="M70 120 Q100 130 130 120" stroke="currentColor" strokeWidth="1.5" fill="none"/>
           </svg>
           {/* Quill/Pen Doodle */}
-          <svg className="absolute w-64 h-64 text-ink" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ bottom: '12vh', left: '8vw' }}>
+          <svg className="absolute w-64 h-64 text-ink opacity-10 rotate-6" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ bottom: '10vh', left: '6vw' }}>
             <path d="M20 80 Q30 40 50 20 Q70 40 80 80"/>
             <path d="M30 70 L70 70"/>
             <path d="M35 60 L65 60"/>
@@ -44,7 +44,7 @@ export default function Home() {
             <path d="M50 35 L50 65 M35 50 L65 50"/>
           </svg>
           {/* Stack of Books */}
-          <svg className="absolute w-80 h-80 text-ink" viewBox="0 0 120 120" fill="currentColor" style={{ top: '45vh', left: '4vw' }}>
+          <svg className="absolute w-80 h-80 text-ink opacity-10 hidden md:block" viewBox="0 0 120 120" fill="currentColor" style={{ top: '48vh', left: '3vw' }}>
             <rect x="20" y="60" width="80" height="12" rx="2"/>
             <rect x="15" y="75" width="90" height="12" rx="2"/>
             <rect x="25" y="90" width="70" height="12" rx="2"/>
@@ -52,14 +52,14 @@ export default function Home() {
             <line x1="100" y1="60" x2="100" y2="72" stroke="currentColor" strokeWidth="1"/>
           </svg>
           {/* Coffee Cup */}
-          <svg className="absolute w-48 h-48 text-ink" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '18vh', left: '22vw' }}>
+          <svg className="absolute w-48 h-48 text-charcoal opacity-5 scale-110" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '16vh', left: '20vw' }}>
             <path d="M20 40 L20 70 Q20 80 30 80 L60 80 Q70 80 70 70 L70 40"/>
             <path d="M15 40 L75 40"/>
             <path d="M70 50 Q85 50 85 60 Q85 70 70 70"/>
             <path d="M30 25 Q35 30 30 35 M45 25 Q50 30 45 35 M60 25 Q65 30 60 35"/>
           </svg>
           {/* Typewriter */}
-          <svg className="absolute w-72 h-72 text-ink" viewBox="0 0 120 100" fill="currentColor" style={{ bottom: '20vh', right: '6vw' }}>
+          <svg className="absolute w-72 h-72 text-charcoal opacity-10 hidden lg:block -rotate-3" viewBox="0 0 120 100" fill="currentColor" style={{ bottom: '18vh', right: '3vw' }}>
             <rect x="20" y="40" width="80" height="35" rx="3" fill="none" stroke="currentColor" strokeWidth="2"/>
             <rect x="25" y="45" width="70" height="25" rx="2"/>
             <circle cx="60" cy="30" r="8"/>
@@ -69,7 +69,7 @@ export default function Home() {
             <line x1="35" y1="60" x2="85" y2="60" stroke="white" strokeWidth="1"/>
           </svg>
           {/* Notebook/Journal */}
-          <svg className="absolute w-56 h-56 text-ink" viewBox="0 0 100 120" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ top: '30vh', right: '20vw' }}>
+          <svg className="absolute w-56 h-56 text-ink opacity-10 hidden md:block" viewBox="0 0 100 120" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ top: '28vh', right: '18vw' }}>
             <rect x="25" y="20" width="50" height="80" rx="2" fill="currentColor" opacity="0.3"/>
             <line x1="35" y1="20" x2="35" y2="100" strokeWidth="2"/>
             <line x1="40" y1="35" x2="65" y2="35"/>
@@ -78,14 +78,14 @@ export default function Home() {
             <line x1="40" y1="65" x2="60" y2="65"/>
           </svg>
           {/* Pencil */}
-          <svg className="absolute w-40 h-40 text-ink rotate-45" viewBox="0 0 100 100" fill="currentColor" style={{ bottom: '25vh', right: '30vw' }}>
+          <svg className="absolute w-40 h-40 text-ink opacity-10 rotate-45" viewBox="0 0 100 100" fill="currentColor" style={{ bottom: '26vh', right: '28vw' }}>
             <polygon points="50,10 45,30 55,30" fill="currentColor"/>
             <rect x="45" y="30" width="10" height="50" fill="currentColor"/>
             <polygon points="45,80 50,90 55,80" fill="currentColor"/>
             <circle cx="50" cy="55" r="3" fill="white"/>
           </svg>
           {/* Open Book */}
-          <svg className="absolute w-64 h-64 text-ink" viewBox="0 0 140 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ top: '60vh', right: '12vw' }}>
+          <svg className="absolute w-64 h-64 text-charcoal opacity-10 hidden lg:block" viewBox="0 0 140 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ top: '62vh', right: '8vw' }}>
             <path d="M20 30 Q20 50 40 60 L70 70 L70 30 L40 20 Q20 20 20 30" fill="currentColor" opacity="0.2"/>
             <path d="M120 30 Q120 50 100 60 L70 70 L70 30 L100 20 Q120 20 120 30" fill="currentColor" opacity="0.2"/>
             <line x1="30" y1="35" x2="60" y2="40"/>
@@ -96,7 +96,7 @@ export default function Home() {
             <line x1="80" y1="54" x2="110" y2="49"/>
           </svg>
           {/* Lightbulb (Ideas) */}
-          <svg className="absolute w-44 h-44 text-ink" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '22vh', left: '35vw' }}>
+          <svg className="absolute w-44 h-44 text-ink opacity-5" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '20vh', left: '36vw' }}>
             <circle cx="50" cy="40" r="20" fill="currentColor" opacity="0.2"/>
             <path d="M40 55 L40 65 Q40 70 45 70 L55 70 Q60 70 60 65 L60 55"/>
             <line x1="45" y1="70" x2="45" y2="75"/>
@@ -105,20 +105,20 @@ export default function Home() {
             <path d="M30 25 L25 20 M70 25 L75 20 M50 15 L50 8 M30 40 L22 40 M70 40 L78 40"/>
           </svg>
           {/* Bookmark */}
-          <svg className="absolute w-32 h-32 text-ink" viewBox="0 0 60 100" fill="currentColor" style={{ bottom: '30vh', left: '24vw' }}>
+          <svg className="absolute w-32 h-32 text-ink opacity-10 hidden sm:block" viewBox="0 0 60 100" fill="currentColor" style={{ bottom: '32vh', left: '22vw' }}>
             <path d="M15 10 L45 10 L45 85 L30 75 L15 85 Z"/>
             <rect x="20" y="20" width="20" height="2" fill="white"/>
             <rect x="20" y="28" width="20" height="2" fill="white"/>
           </svg>
 
           {/* Quote Marks */}
-          <svg className="absolute w-24 h-24 text-ink" viewBox="0 0 100 60" fill="currentColor" style={{ top: '10vh', left: '46vw' }}>
+          <svg className="absolute w-24 h-24 text-charcoal opacity-5" viewBox="0 0 100 60" fill="currentColor" style={{ top: '8vh', left: '46vw' }}>
             <path d="M20 20 Q20 10 30 10 Q40 10 40 20 Q40 30 30 35 Q25 40 25 50 L15 50 Q15 35 20 30 Z"/>
             <path d="M60 20 Q60 10 70 10 Q80 10 80 20 Q80 30 70 35 Q65 40 65 50 L55 50 Q55 35 60 30 Z"/>
           </svg>
 
           {/* Glasses */}
-          <svg className="absolute w-28 h-16 text-ink" viewBox="0 0 120 60" fill="none" stroke="currentColor" strokeWidth="3" style={{ bottom: '10vh', left: '10vw' }}>
+          <svg className="absolute w-28 h-16 text-ink opacity-10" viewBox="0 0 120 60" fill="none" stroke="currentColor" strokeWidth="3" style={{ bottom: '8vh', left: '6vw' }}>
             <circle cx="35" cy="30" r="18"/>
             <circle cx="85" cy="30" r="18"/>
             <line x1="53" y1="30" x2="67" y2="30"/>
@@ -127,12 +127,12 @@ export default function Home() {
           </svg>
 
           {/* Paperclip */}
-          <svg className="absolute w-16 h-16 text-ink rotate-12" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" style={{ top: '6vh', right: '30vw' }}>
+          <svg className="absolute w-16 h-16 text-ink opacity-10 rotate-12" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" style={{ top: '6vh', right: '30vw' }}>
             <path d="M20 36 L40 20 Q48 14 54 20 Q60 26 54 32 L30 52 Q22 58 16 52 Q10 46 16 40 L38 22"/>
           </svg>
 
           {/* Calendar */}
-          <svg className="absolute w-28 h-28 text-ink" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ bottom: '16vh', right: '20vw' }}>
+          <svg className="absolute w-28 h-28 text-charcoal opacity-10 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ bottom: '14vh', right: '18vw' }}>
             <rect x="15" y="25" width="70" height="60" rx="6"/>
             <line x1="15" y1="40" x2="85" y2="40"/>
             <line x1="30" y1="20" x2="30" y2="35"/>
@@ -142,14 +142,14 @@ export default function Home() {
           </svg>
 
           {/* Stars/Sparkles A */}
-          <svg className="absolute w-24 h-24 text-ink" viewBox="0 0 100 100" fill="currentColor" style={{ top: '36vh', left: '56vw' }}>
+          <svg className="absolute w-24 h-24 text-ink opacity-10" viewBox="0 0 100 100" fill="currentColor" style={{ top: '34vh', left: '58vw' }}>
             <path d="M50 10 L56 34 L80 40 L56 46 L50 70 L44 46 L20 40 L44 34 Z"/>
             <circle cx="20" cy="20" r="4"/>
             <circle cx="78" cy="22" r="3"/>
           </svg>
 
           {/* Stars/Sparkles B */}
-          <svg className="absolute w-20 h-20 text-ink" viewBox="0 0 100 100" fill="currentColor" style={{ top: '72vh', left: '12vw' }}>
+          <svg className="absolute w-20 h-20 text-ink opacity-10" viewBox="0 0 100 100" fill="currentColor" style={{ top: '70vh', left: '10vw' }}>
             <path d="M50 20 L54 36 L70 40 L54 44 L50 60 L46 44 L30 40 L46 36 Z"/>
             <circle cx="25" cy="55" r="3"/>
           </svg>
