@@ -14,7 +14,10 @@ export async function middleware(request: NextRequest) {
 
   // Create a Supabase client for middleware
   const res = NextResponse.next();
-  const supabase = createMiddlewareClient({ req: request, res });
+  const supabase = createMiddlewareClient({ req: request, res }, {
+    supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  });
 
   // Refresh session if expired
   await supabase.auth.getSession();
@@ -32,8 +35,8 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Redirect authenticated users away from auth pages
-  if (pathname.startsWith('/auth/') && user) {
+  // Redirect authenticated users away from auth pages (except callback)
+  if (pathname.startsWith('/auth/') && user && pathname !== '/auth/callback') {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
@@ -77,8 +80,6 @@ export const config = {
   matcher: [
     // Protect dashboard routes
     '/dashboard/:path*',
-    // Redirect authenticated users from auth pages
-    '/auth/:path*',
     // Protect Pro routes
     '/ab-tests/:path*',
     '/calendar/:path*',

@@ -1,4 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
+'use client';
+
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 // Debug logging
 console.log('Environment Variables:');
@@ -14,15 +16,12 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Missing Supabase environment variables!');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: true
-  }
+export const supabase = createClientComponentClient({
+  supabaseUrl,
+  supabaseKey: supabaseAnonKey,
 });
 
-console.log('Supabase client initialized:', supabase ? 'Success' : 'Failed');
+console.log('Supabase client-component client initialized:', supabase ? 'Success' : 'Failed');
 
 // Helper function to get the current user
 export const getCurrentUser = async () => {
