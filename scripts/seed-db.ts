@@ -1,6 +1,10 @@
 // Seed database with sample data
 // Run with: pnpm db:seed
 
+import dotenv from 'dotenv';
+// Load env vars from .env.local when running outside Next.js
+dotenv.config({ path: '.env.local' });
+
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -27,8 +31,6 @@ async function seedDatabase() {
       .from('profiles')
       .upsert({
         id: TEST_USER_ID,
-        email: 'test@authorstack.com',
-        full_name: 'Test Author',
         subscription_tier: 'pro',
         whop_customer_id: 'whop_test_customer_123',
         created_at: new Date().toISOString(),
@@ -49,7 +51,6 @@ async function seedDatabase() {
         isbn: '978-1234567890',
         asin: 'B0ABC123DEF',
         genre: 'Non-Fiction',
-        description: 'A comprehensive guide to marketing your book effectively',
         cover_url: 'https://via.placeholder.com/300x400?text=Book+Marketing',
         created_at: new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString(),
       },
@@ -61,7 +62,6 @@ async function seedDatabase() {
         isbn: '978-0987654321',
         asin: 'B0XYZ789GHI',
         genre: 'Fiction',
-        description: 'A mystery novel set in a beautiful garden',
         cover_url: 'https://via.placeholder.com/300x400?text=Midnight+Garden',
         created_at: new Date(Date.now() - 45 * 24 * 60 * 60 * 1000).toISOString(),
       },
@@ -81,17 +81,17 @@ async function seedDatabase() {
         id: 'cccccccc-cccc-cccc-cccc-cccccccccccc',
         user_id: TEST_USER_ID,
         platform_name: 'amazon',
+        credentials: { api_key: 'test_amazon_key' },
         is_active: true,
-        api_key: 'test_amazon_key',
-        last_synced: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+        last_synced_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
       },
       {
         id: 'dddddddd-dddd-dddd-dddd-dddddddddddd',
         user_id: TEST_USER_ID,
         platform_name: 'gumroad',
+        credentials: { api_key: 'test_gumroad_key' },
         is_active: true,
-        api_key: 'test_gumroad_key',
-        last_synced: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+        last_synced_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
       },
     ];
 
@@ -104,7 +104,7 @@ async function seedDatabase() {
 
     // 4. Create sales data
     console.log('💰 Creating sales data...');
-    const salesData = [];
+    const salesData = [] as any[];
     const bookIds = ['aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb'];
     const platforms = ['amazon', 'gumroad'];
 
@@ -116,13 +116,11 @@ async function seedDatabase() {
           if (bookId === 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb' && platform === 'gumroad') continue;
           
           salesData.push({
-            id: `sale-${bookId}-${platform}-${i}`,
-            user_id: TEST_USER_ID,
             book_id: bookId,
             platform,
-            date: date.toISOString().split('T')[0],
+            sale_date: date.toISOString().split('T')[0],
             units_sold: Math.floor(Math.random() * 20) + 1,
-            revenue: Math.random() * 100 + 10,
+            revenue: Math.round((Math.random() * 100 + 10) * 100) / 100,
             page_reads: platform === 'amazon' ? Math.floor(Math.random() * 5000) : 0,
             currency: 'USD',
           });
@@ -131,7 +129,7 @@ async function seedDatabase() {
     }
 
     const { error: salesError } = await supabase
-      .from('sales')
+      .from('sales_data')
       .upsert(salesData);
 
     if (salesError) throw salesError;
@@ -145,11 +143,9 @@ async function seedDatabase() {
       .from('launch_checklists')
       .upsert({
         id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
-        user_id: TEST_USER_ID,
         book_id: 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
-        launch_date: launchDate.toISOString(),
+        launch_date: launchDate.toISOString().split('T')[0],
         status: 'active',
-        reminders_enabled: true,
       });
 
     if (checklistError) throw checklistError;
@@ -161,47 +157,47 @@ async function seedDatabase() {
       {
         id: '10101010-1010-1010-1010-101010101010',
         checklist_id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
-        name: 'Finalize book cover',
+        task_name: 'Finalize book cover',
         description: 'Get final approval on cover design',
-        due_date: new Date(Date.now() + 25 * 24 * 60 * 60 * 1000).toISOString(),
+        due_date: new Date(Date.now() + 25 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
         completed: true,
-        order: 1,
+        task_order: 1,
       },
       {
         id: '20202020-2020-2020-2020-202020202020',
         checklist_id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
-        name: 'Send to beta readers',
+        task_name: 'Send to beta readers',
         description: 'Distribute ARC to beta readers for feedback',
-        due_date: new Date(Date.now() + 20 * 24 * 60 * 60 * 1000).toISOString(),
+        due_date: new Date(Date.now() + 20 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
         completed: true,
-        order: 2,
+        task_order: 2,
       },
       {
         id: '30303030-3030-3030-3030-303030303030',
         checklist_id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
-        name: 'Create launch day social media posts',
+        task_name: 'Create launch day social media posts',
         description: 'Write and schedule 5 social media posts for launch day',
-        due_date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(),
+        due_date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
         completed: false,
-        order: 3,
+        task_order: 3,
       },
       {
         id: '40404040-4040-4040-4040-404040404040',
         checklist_id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
-        name: 'Set up pre-order links',
+        task_name: 'Set up pre-order links',
         description: 'Configure pre-order links on all platforms',
-        due_date: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
+        due_date: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
         completed: false,
-        order: 4,
+        task_order: 4,
       },
       {
         id: '50505050-5050-5050-5050-505050505050',
         checklist_id: 'ffffffff-ffff-ffff-ffff-ffffffffffff',
-        name: 'Launch day promotion',
+        task_name: 'Launch day promotion',
         description: 'Execute launch day marketing blitz',
-        due_date: launchDate.toISOString(),
+        due_date: launchDate.toISOString().split('T')[0],
         completed: false,
-        order: 5,
+        task_order: 5,
       },
     ];
 
