@@ -1,0 +1,73 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
+import { fadeInUp } from '@/lib/animations';
+
+interface FeatureCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  stat: string;
+  delay?: number;
+}
+
+export function FeatureCard({ icon, title, description, stat, delay = 0 }: FeatureCardProps) {
+  return (
+    <motion.div
+      variants={fadeInUp}
+      transition={{ delay: delay * 0.1 }}
+      className="group relative bg-surface border border-stroke rounded-card p-8 hover:shadow-elevated transition-all duration-300 overflow-hidden"
+      whileHover={{ y: -4 }}
+    >
+      {/* Ink blot hover effect */}
+      <motion.div
+        className="absolute inset-0 bg-burgundy opacity-0 rounded-card"
+        whileHover={{ opacity: 0.02 }}
+        transition={{ duration: 0.3 }}
+      />
+
+      <div className="relative z-10">
+        {/* Icon container with tilt effect */}
+        <motion.div
+          className="w-14 h-14 bg-burgundy bg-opacity-10 rounded-card flex items-center justify-center mb-6 group-hover:bg-opacity-20 transition-smooth"
+          whileHover={{ rotateX: 10, rotateY: 10 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="text-burgundy">{icon}</div>
+        </motion.div>
+
+        {/* Content */}
+        <h3 className="font-heading text-xl font-semibold text-ink mb-3">{title}</h3>
+        <p className="text-charcoal text-sm mb-4 leading-relaxed">{description}</p>
+
+        {/* Stat badge with underline animation */}
+        <div className="flex items-center gap-2">
+          <span className="inline-block px-3 py-1 bg-glass rounded text-xs font-medium text-burgundy">
+            {stat}
+          </span>
+          <motion.div
+            className="h-0.5 bg-burgundy"
+            initial={{ width: 0 }}
+            whileHover={{ width: 20 }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
+      </div>
+
+      {/* Torn paper effect border */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-1 opacity-10"
+        viewBox="0 0 400 10"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5 T120,5 T140,5 T160,5 T180,5 T200,5 T220,5 T240,5 T260,5 T280,5 T300,5 T320,5 T340,5 T360,5 T380,5 T400,5"
+          stroke="#8A1B2E"
+          fill="none"
+          strokeWidth="1"
+        />
+      </svg>
+    </motion.div>
+  );
+}
