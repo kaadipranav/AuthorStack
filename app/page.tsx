@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BookOpen, TrendingUp, Target, Zap, ArrowRight, Check, BarChart3, Users, Rocket } from 'lucide-react';
 import { Button } from '@/components/Button';
+import { ScrollAnimator } from '@/components/ScrollAnimator';
 
 export default function Home() {
   return (
@@ -212,6 +213,13 @@ export default function Home() {
           <svg className="absolute w-36 h-36 text-ink opacity-10 rotate-90" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ bottom: '38vh', right: '32vw' }}>
             <path d="M50 50 Q50 30 70 30 Q90 30 90 50 Q90 70 70 70 Q50 70 50 50 Q50 35 65 35 Q80 35 80 50" strokeLinecap="round"/>
           </svg>
+
+          {/* Top-Left Decoration */}
+          <svg className="absolute w-40 h-40 text-burgundy opacity-10 -rotate-12" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '2vh', left: '2vw' }}>
+            <path d="M10 50 L50 10 L90 50 L50 90 Z"/>
+            <path d="M30 50 L50 30 L70 50 L50 70 Z"/>
+            <circle cx="50" cy="50" r="8"/>
+          </svg>
         </div>
         <div className="container-custom max-w-4xl mx-auto text-center relative z-10">
           {/* Social Proof Badge */}
@@ -298,14 +306,20 @@ export default function Home() {
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="group bg-surface border border-stroke rounded-card p-6 hover:shadow-elevated transition-smooth duration-normal cursor-pointer">
+                <ScrollAnimator
+                  key={idx}
+                  animation="fade-in-up"
+                  delay={idx * 100}
+                >
+                  <div className="group bg-surface border border-stroke rounded-card p-6 hover:shadow-elevated transition-smooth duration-normal cursor-pointer">
                   <div className="w-12 h-12 bg-burgundy bg-opacity-10 rounded-card flex items-center justify-center mb-4 group-hover:bg-opacity-20 transition-smooth">
                     <Icon className="w-6 h-6 text-burgundy" />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-ink mb-2">{feature.title}</h3>
-                  <p className="text-charcoal text-sm mb-3 leading-relaxed">{feature.description}</p>
-                  <span className="inline-block px-2 py-1 bg-glass rounded text-xs font-medium text-burgundy">{feature.stat}</span>
-                </div>
+                    <h3 className="font-heading text-lg font-semibold text-ink mb-2">{feature.title}</h3>
+                    <p className="text-charcoal text-sm mb-3 leading-relaxed">{feature.description}</p>
+                    <span className="inline-block px-2 py-1 bg-glass rounded text-xs font-medium text-burgundy">{feature.stat}</span>
+                  </div>
+                </ScrollAnimator>
               );
             })}
           </div>
@@ -357,12 +371,16 @@ export default function Home() {
                 cta: 'Contact Sales',
               },
             ].map((plan, idx) => (
-              <div
+              <ScrollAnimator
                 key={idx}
-                className={`relative bg-surface border rounded-card p-8 ${
-                  plan.highlighted ? 'border-burgundy shadow-elevated scale-105' : 'border-stroke'
-                }`}
+                animation={idx === 0 ? 'fade-in-left' : idx === 2 ? 'fade-in-right' : 'fade-in-up'}
+                delay={idx * 100}
               >
+                <div
+                  className={`relative bg-surface border rounded-card p-8 ${
+                    plan.highlighted ? 'border-burgundy shadow-elevated scale-105' : 'border-stroke'
+                  }`}
+                >
                 {plan.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-burgundy text-white text-xs font-medium rounded-full">
                     {plan.badge}
@@ -381,12 +399,13 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/auth/signup">
-                  <Button variant={plan.highlighted ? 'primary' : 'secondary'} className="w-full">
-                    {plan.cta}
-                  </Button>
-                </Link>
-              </div>
+                  <Link href="/auth/signup">
+                    <Button variant={plan.highlighted ? 'primary' : 'secondary'} className="w-full">
+                      {plan.cta}
+                    </Button>
+                  </Link>
+                </div>
+              </ScrollAnimator>
             ))}
           </div>
         </div>
