@@ -28,7 +28,10 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   // Protect dashboard routes
-  if (pathname.startsWith('/dashboard')) {
+  const dashboardRoutes = ['/dashboard', '/books', '/launches', '/competitors', '/insights', '/settings', '/ab-tests', '/calendar'];
+  const isDashboardRoute = dashboardRoutes.some(route => pathname.startsWith(route));
+  
+  if (isDashboardRoute) {
     if (!user) {
       // Redirect to login if not authenticated
       return NextResponse.redirect(new URL('/auth/login', request.url));
@@ -80,6 +83,11 @@ export const config = {
   matcher: [
     // Protect dashboard routes
     '/dashboard/:path*',
+    '/books/:path*',
+    '/launches/:path*',
+    '/competitors/:path*',
+    '/insights/:path*',
+    '/settings/:path*',
     // Protect Pro routes
     '/ab-tests/:path*',
     '/calendar/:path*',
