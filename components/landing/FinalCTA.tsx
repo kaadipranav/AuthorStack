@@ -14,29 +14,32 @@ export function FinalCTA() {
         {motion.div && (
           <>
             <motion.div
-              className="absolute w-32 h-40 border-2 border-white opacity-5 rounded-sm"
+              className="absolute w-32 h-40 border border-white/60 bg-white/10 rounded-sm backdrop-blur-sm"
               style={{ top: '10%', left: '5%' }}
               animate={{
-                y: [0, -20, 0],
-                rotate: [0, 2, 0],
+                y: [0, -15, 0],
+                rotate: [0, 1, -1, 0],
+                scale: [1, 1.02, 1],
               }}
               transition={{
-                duration: 4,
+                duration: 8,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
             />
             <motion.div
-              className="absolute w-28 h-36 border-2 border-white opacity-3 rounded-sm"
+              className="absolute w-28 h-36 border border-white/50 bg-white/5 rounded-sm backdrop-blur-sm"
               style={{ bottom: '15%', right: '8%' }}
               animate={{
-                y: [0, 15, 0],
-                rotate: [0, -2, 0],
+                y: [0, 12, 0],
+                rotate: [0, -1, 1, 0],
+                scale: [1, 1.01, 1],
               }}
               transition={{
-                duration: 5,
+                duration: 10,
                 repeat: Infinity,
                 ease: 'easeInOut',
+                delay: 1
               }}
             />
           </>
@@ -72,10 +75,24 @@ export function FinalCTA() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="bg-white text-burgundy hover:bg-opacity-90 group"
+                className="bg-white text-burgundy hover:bg-opacity-90 group relative overflow-hidden"
               >
-                Start Free Today
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-smooth" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Start Free Today
+                  <motion.span
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 4 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                  >
+                    <ArrowRight size={20} />
+                  </motion.span>
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-white/10"
+                  initial={{ scaleX: 0, transformOrigin: 'left' }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                />
               </Button>
             </Link>
           </motion.div>

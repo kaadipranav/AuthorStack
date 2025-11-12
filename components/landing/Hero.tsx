@@ -15,12 +15,29 @@ export function Hero() {
         <motion.div
           className="absolute w-32 h-40 bg-surface/60 border border-burgundy/70 rounded-sm shadow-sm"
           style={{ top: '15%', right: '10%' }}
-          animate={floatingAnimation}
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 2, -2, 0],
+            transition: {
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          }}
         />
         <motion.div
           className="absolute w-24 h-32 bg-surface/50 border border-burgundy/60 rounded-sm shadow-sm"
           style={{ top: '60%', left: '5%' }}
-          animate={{ ...floatingAnimation, duration: 4 }}
+          animate={{
+            y: [0, -10, 0],
+            rotate: [0, -1, 1, 0],
+            transition: {
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1
+            }
+          }}
         />
         
         {/* Ink blot decorations */}

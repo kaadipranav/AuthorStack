@@ -30,13 +30,18 @@ export function PricingCard({
   return (
     <motion.div
       variants={fadeInUp}
-      transition={{ delay: delay * 0.1 }}
+      transition={{
+        delay: delay * 0.1,
+        type: 'spring',
+        stiffness: 300,
+        damping: 15
+      }}
       className={`relative bg-surface border rounded-card p-8 transition-all duration-300 ${
         highlighted
-          ? 'border-burgundy shadow-elevated lg:scale-105'
-          : 'border-stroke hover:shadow-elevated'
+          ? 'border-burgundy/70 shadow-elevated lg:scale-105 hover:shadow-xl'
+          : 'border-stroke/60 hover:shadow-elevated hover:border-burgundy/30'
       }`}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -10, scale: 1.03 }}
     >
       {/* Ribbon badge */}
       {badge && (
@@ -59,9 +64,11 @@ export function PricingCard({
         transition={{ duration: 0.3 }}
       />
 
-      <div className="relative z-10">
+      <div className="relative z-10 group">
         {/* Plan name */}
-        <h3 className="font-heading text-2xl font-bold text-ink mb-4">{name}</h3>
+        <h3 className="font-heading text-2xl font-bold text-ink mb-4 group-hover:text-burgundy transition-colors">
+          {name}
+        </h3>
 
         {/* Price */}
         <div className="mb-8">
@@ -86,12 +93,16 @@ export function PricingCard({
         </ul>
 
         {/* CTA Button */}
-        <Link href="/auth/signup" className="block">
+        <Link href={highlighted ? "/auth/signup" : "/pricing"} className="block group/button">
           <Button
             variant={highlighted ? 'primary' : 'secondary'}
-            className="w-full"
+            className="w-full group-hover/button:scale-[1.02] transition-transform"
+            size="lg"
           >
             {cta}
+            {!highlighted && (
+              <span className="ml-2 group-hover/button:translate-x-1 transition-transform">→</span>
+            )}
           </Button>
         </Link>
       </div>

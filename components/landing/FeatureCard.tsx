@@ -16,9 +16,14 @@ export function FeatureCard({ icon, title, description, stat, delay = 0 }: Featu
   return (
     <motion.div
       variants={fadeInUp}
-      transition={{ delay: delay * 0.1 }}
-      className="group relative bg-surface border border-stroke rounded-card p-8 hover:shadow-elevated transition-all duration-300 overflow-hidden"
-      whileHover={{ y: -4 }}
+      transition={{
+        delay: delay * 0.1,
+        type: 'spring',
+        stiffness: 300,
+        damping: 20
+      }}
+      className="group relative bg-surface border border-stroke/50 rounded-card p-8 hover:shadow-elevated hover:border-burgundy/20 transition-all duration-300 overflow-hidden"
+      whileHover={{ y: -6, scale: 1.015 }}
     >
       {/* Ink blot hover effect */}
       <motion.div
@@ -30,16 +35,21 @@ export function FeatureCard({ icon, title, description, stat, delay = 0 }: Featu
       <div className="relative z-10">
         {/* Icon container with tilt effect */}
         <motion.div
-          className="w-14 h-14 bg-burgundy bg-opacity-10 rounded-card flex items-center justify-center mb-6 group-hover:bg-opacity-20 transition-smooth"
-          whileHover={{ rotateX: 10, rotateY: 10 }}
-          transition={{ duration: 0.3 }}
+          className="w-14 h-14 bg-burgundy/10 rounded-card flex items-center justify-center mb-6 group-hover:bg-burgundy/20 transition-smooth"
+          whileHover={{ rotateX: 8, rotateY: 8, scale: 1.05 }}
+          transition={{
+            type: 'spring',
+            stiffness: 400,
+            damping: 10,
+            duration: 0.3
+          }}
         >
           <div className="text-burgundy">{icon}</div>
         </motion.div>
 
         {/* Content */}
         <h3 className="font-heading text-xl font-semibold text-ink mb-3">{title}</h3>
-        <p className="text-charcoal text-sm mb-4 leading-relaxed">{description}</p>
+        <p className="text-charcoal text-sm mb-4 leading-relaxed group-hover:text-ink transition-colors">{description}</p>
 
         {/* Stat badge with underline animation */}
         <div className="flex items-center gap-2">
@@ -50,7 +60,12 @@ export function FeatureCard({ icon, title, description, stat, delay = 0 }: Featu
             className="h-0.5 bg-burgundy"
             initial={{ width: 0 }}
             whileHover={{ width: 20 }}
-            transition={{ duration: 0.3 }}
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 10,
+              duration: 0.3
+            }}
           />
         </div>
       </div>

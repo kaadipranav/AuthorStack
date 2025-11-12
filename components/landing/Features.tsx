@@ -35,7 +35,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="relative py-24 bg-paper paper-texture">
+    <section id="features" className="relative py-24 bg-paper paper-texture overflow-hidden">
       <SectionDivider variant="wave" className="absolute top-0 left-0" />
 
       <div className="container-custom">
@@ -56,17 +56,46 @@ export function Features() {
         </motion.div>
 
         {/* Features grid */}
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          {features.map((feature, idx) => (
-            <FeatureCard key={idx} {...feature} delay={idx} />
-          ))}
-        </motion.div>
+        <div className="relative">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            {features.map((feature, idx) => (
+              <FeatureCard key={idx} {...feature} delay={idx} />
+            ))}
+          </motion.div>
+          
+          {/* Decorative elements */}
+          <motion.div 
+            className="absolute -bottom-20 -left-20 w-64 h-64 bg-burgundy/5 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.7, 0.8, 0.7],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div 
+            className="absolute -top-10 -right-10 w-48 h-48 bg-ink/5 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.5, 0.7, 0.5],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 1
+            }}
+          />
+        </div>
       </div>
 
       <SectionDivider variant="wave" className="absolute bottom-0 left-0 rotate-180" />
