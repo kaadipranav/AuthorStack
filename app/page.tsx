@@ -26,7 +26,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden py-24 lg:py-32">
         {/* Watermark Background Elements */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Book Icon Shadow */}
           <svg className="absolute w-96 h-96 text-ink opacity-10 hidden sm:block -rotate-2" viewBox="0 0 200 200" fill="currentColor" style={{ top: '8vh', right: '8vw' }}>
             <path d="M50 20 L150 20 Q160 20 160 30 L160 170 Q160 180 150 180 L50 180 Q40 180 40 170 L40 30 Q40 20 50 20 M100 20 L100 180" strokeWidth="2" stroke="currentColor" fill="none"/>
@@ -152,6 +152,65 @@ export default function Home() {
           <svg className="absolute w-20 h-20 text-ink opacity-10" viewBox="0 0 100 100" fill="currentColor" style={{ top: '70vh', left: '10vw' }}>
             <path d="M50 20 L54 36 L70 40 L54 44 L50 60 L46 44 L30 40 L46 36 Z"/>
             <circle cx="25" cy="55" r="3"/>
+          </svg>
+
+          {/* Decorative Dots Pattern */}
+          <svg className="absolute w-32 h-32 text-ink opacity-10 rotate-45" viewBox="0 0 100 100" fill="currentColor" style={{ top: '12vh', right: '15vw' }}>
+            <circle cx="25" cy="25" r="4"/>
+            <circle cx="50" cy="25" r="4"/>
+            <circle cx="75" cy="25" r="4"/>
+            <circle cx="25" cy="50" r="4"/>
+            <circle cx="50" cy="50" r="4"/>
+            <circle cx="75" cy="50" r="4"/>
+            <circle cx="25" cy="75" r="4"/>
+            <circle cx="50" cy="75" r="4"/>
+            <circle cx="75" cy="75" r="4"/>
+          </svg>
+
+          {/* Wavy Lines */}
+          <svg className="absolute w-48 h-48 text-charcoal opacity-10 -rotate-12" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ bottom: '22vh', left: '42vw' }}>
+            <path d="M10 30 Q30 20 50 30 T90 30"/>
+            <path d="M10 50 Q30 40 50 50 T90 50"/>
+            <path d="M10 70 Q30 60 50 70 T90 70"/>
+          </svg>
+
+          {/* Decorative Circles */}
+          <svg className="absolute w-40 h-40 text-ink opacity-10 rotate-12" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ top: '42vh', right: '22vw' }}>
+            <circle cx="50" cy="50" r="30"/>
+            <circle cx="50" cy="50" r="20"/>
+            <circle cx="50" cy="50" r="10"/>
+          </svg>
+
+          {/* Checkmark */}
+          <svg className="absolute w-24 h-24 text-forest opacity-10 -rotate-6" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" style={{ top: '58vh', left: '68vw' }}>
+            <path d="M20 50 L40 70 L80 25" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+
+          {/* Underline Doodle */}
+          <svg className="absolute w-56 h-20 text-burgundy opacity-10 rotate-3" viewBox="0 0 200 50" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '24vh', left: '32vw' }}>
+            <path d="M10 30 Q50 10 100 30 T190 30"/>
+            <circle cx="20" cy="30" r="3" fill="currentColor"/>
+            <circle cx="180" cy="30" r="3" fill="currentColor"/>
+          </svg>
+
+          {/* Scattered Marks */}
+          <svg className="absolute w-28 h-28 text-ink opacity-10 rotate-45" viewBox="0 0 100 100" fill="currentColor" style={{ bottom: '48vh', right: '42vw' }}>
+            <rect x="20" y="20" width="8" height="8" rx="1"/>
+            <rect x="40" y="30" width="6" height="6" rx="1"/>
+            <rect x="60" y="25" width="7" height="7" rx="1"/>
+            <rect x="30" y="60" width="6" height="6" rx="1"/>
+            <rect x="70" y="65" width="8" height="8" rx="1"/>
+          </svg>
+
+          {/* Curved Arrow */}
+          <svg className="absolute w-32 h-32 text-charcoal opacity-10 -rotate-45" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" style={{ top: '50vh', left: '14vw' }}>
+            <path d="M20 80 Q50 20 80 50" strokeLinecap="round"/>
+            <path d="M70 40 L80 50 L75 60" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+
+          {/* Spiral */}
+          <svg className="absolute w-36 h-36 text-ink opacity-10 rotate-90" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ bottom: '38vh', right: '32vw' }}>
+            <path d="M50 50 Q50 30 70 30 Q90 30 90 50 Q90 70 70 70 Q50 70 50 50 Q50 35 65 35 Q80 35 80 50" strokeLinecap="round"/>
           </svg>
         </div>
         <div className="container-custom max-w-4xl mx-auto text-center relative z-10">
