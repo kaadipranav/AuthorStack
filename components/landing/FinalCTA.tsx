@@ -5,8 +5,52 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { useEffect, useState } from 'react';
 
 export function FinalCTA() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <section className="relative bg-burgundy text-white py-24 overflow-hidden">
+        <div className="container-custom max-w-3xl mx-auto text-center relative z-10">
+          {/* Heading */}
+          <h2 className="font-heading text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Ready to Grow Your Book Business?
+          </h2>
+
+          {/* Subheading */}
+          <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90 leading-relaxed">
+            Join hundreds of indie authors who are using AuthorStack to manage their sales, track competitors, and launch with confidence.
+          </p>
+
+          {/* CTA Button */}
+          <div>
+            <Link href="/auth/signup">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="bg-white text-burgundy hover:bg-opacity-90"
+              >
+                Start Free Today
+                <ArrowRight size={20} />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Trust line */}
+          <p className="text-sm opacity-75 mt-8">
+            No credit card required. 14-day free trial. Cancel anytime.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative bg-burgundy text-white py-24 overflow-hidden">
       {/* Animated background pages */}

@@ -5,6 +5,7 @@ import { TrendingUp, Target, Rocket, Zap } from 'lucide-react';
 import { FeatureCard } from './FeatureCard';
 import { SectionDivider } from './SectionDivider';
 import { staggerContainer } from '@/lib/animations';
+import { useEffect, useState } from 'react';
 
 const features = [
   {
@@ -34,6 +35,50 @@ const features = [
 ];
 
 export function Features() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <section id="features" className="relative py-24 bg-paper paper-texture overflow-hidden">
+        <div className="container-custom">
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-ink mb-4">
+              Everything You Need to Succeed
+            </h2>
+            <p className="text-lg text-charcoal max-w-2xl mx-auto">
+              Built by authors, for authors. Every feature designed to save you time and grow your revenue.
+            </p>
+          </div>
+
+          {/* Features grid */}
+          <div className="relative">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+              {features.map((feature, idx) => (
+                <div key={idx} className="bg-surface border border-stroke/50 rounded-card p-8">
+                  <div className="w-14 h-14 bg-burgundy/10 rounded-card flex items-center justify-center mb-6">
+                    <div className="text-burgundy">{feature.icon}</div>
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold text-ink mb-3">{feature.title}</h3>
+                  <p className="text-charcoal text-sm mb-4 leading-relaxed">{feature.description}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block px-3 py-1 bg-glass rounded text-xs font-medium text-burgundy">
+                      {feature.stat}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="features" className="relative py-24 bg-paper paper-texture overflow-hidden">
       <SectionDivider variant="wave" className="absolute top-0 left-0" />

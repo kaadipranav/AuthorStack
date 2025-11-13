@@ -5,8 +5,81 @@ import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { fadeInUp, staggerContainer, floatingAnimation } from '@/lib/animations';
+import { useEffect, useState } from 'react';
 
 export function Hero() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <section className="relative min-h-screen bg-paper paper-texture overflow-hidden pt-32 pb-20">
+        <div className="container-custom max-w-4xl mx-auto relative z-10">
+          <div className="text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-burgundy bg-opacity-10 border border-burgundy rounded-full mb-8">
+              <span className="w-2 h-2 bg-burgundy rounded-full"></span>
+              <span className="text-sm font-medium text-burgundy">Join 500+ indie authors</span>
+            </div>
+
+            {/* Main heading */}
+            <h1 className="font-heading text-6xl lg:text-7xl font-bold text-ink mb-6 leading-tight">
+              Turn your author journey into a{' '}
+              <span className="text-burgundy">well-oiled publishing engine.</span>
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-xl lg:text-2xl text-charcoal mb-12 max-w-2xl mx-auto leading-relaxed">
+              Bring your drafts, sales, and launches together — beautifully organized for indie authors.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <div>
+                <Button variant="primary" size="lg">
+                  Start Free Trial
+                  <ArrowRight size={20} />
+                </Button>
+              </div>
+              <div>
+                <Button variant="secondary" size="lg">
+                  <BarChart3 size={20} />
+                  View Live Demo
+                </Button>
+              </div>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-charcoal">
+              <div className="flex items-center gap-2">
+                <span className="text-burgundy">✓</span>
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-burgundy">✓</span>
+                <span>14-day free trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-burgundy">✓</span>
+                <span>Cancel anytime</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Hero illustration - Desk to Dashboard morphing concept */}
+          <div className="mt-32 lg:mt-40 relative h-[32rem] lg:h-[38rem] bg-gradient-to-br from-burgundy/5 to-ink/5 rounded-lg border border-stroke overflow-hidden">
+            <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Illustration Loading...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative min-h-screen bg-paper paper-texture overflow-hidden pt-32 pb-20">
       {/* Animated background elements */}

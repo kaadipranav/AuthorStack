@@ -5,6 +5,7 @@ import { Hero } from '@/components/landing/Hero';
 import { Features } from '@/components/landing/Features';
 import { Pricing } from '@/components/landing/Pricing';
 import { FinalCTA } from '@/components/landing/FinalCTA';
+import ClientHome from './ClientHome';
 
 export const metadata = {
   title: 'AuthorStack - Your Book Business Dashboard',
@@ -34,10 +35,7 @@ export default function Home() {
 
       {/* Main content */}
       <main>
-        <Hero />
-        <Features />
-        <Pricing />
-        <FinalCTA />
+        <ClientHome />
       </main>
 
       {/* Footer */}

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 interface SectionDividerProps {
   variant?: 'wave' | 'torn' | 'line';
@@ -8,6 +9,17 @@ interface SectionDividerProps {
 }
 
 export function SectionDivider({ variant = 'wave', className = '' }: SectionDividerProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    // Render a simple divider as a fallback for server-side rendering
+    return <div className={`h-px bg-stroke ${className}`} />;
+  }
+
   if (variant === 'wave') {
     return (
       <svg

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { fadeInUp } from '@/lib/animations';
+import { useEffect, useState } from 'react';
 
 interface PricingCardProps {
   name: string;
@@ -27,6 +28,64 @@ export function PricingCard({
   highlighted = false,
   delay = 0,
 }: PricingCardProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <div
+        className={`relative bg-surface border rounded-card p-8 ${
+          highlighted
+            ? 'border-burgundy/70 shadow-elevated'
+            : 'border-stroke/60'
+        }`}
+      >
+        {/* Ribbon badge */}
+        {badge && (
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-burgundy text-white text-xs font-semibold rounded-full shadow-elevated">
+            {badge}
+          </div>
+        )}
+        <div className="group">
+          {/* Plan name */}
+          <h3 className="font-heading text-2xl font-bold text-ink mb-4 group-hover:text-burgundy transition-colors">
+            {name}
+          </h3>
+
+          {/* Price */}
+          <div className="mb-8">
+            <span className="font-mono text-5xl font-bold text-ink">{price}</span>
+            {period && <span className="text-charcoal ml-2">{period}</span>}
+          </div>
+
+          {/* Features list */}
+          <ul className="space-y-3 mb-8">
+            {features.map((feature, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-sm">
+                <Check size={16} className="text-forest flex-shrink-0 mt-0.5" />
+                <span className="text-charcoal">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA Button */}
+          <Link href={highlighted ? "/auth/signup" : "/pricing"} className="block group/button">
+            <Button
+              variant={highlighted ? 'primary' : 'secondary'}
+              className="w-full group-hover/button:scale-[1.02] transition-transform"
+              size="lg"
+            >
+              {cta}
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       variants={fadeInUp}
