@@ -17,10 +17,39 @@ export default function NewBookPage() {
     publishedDate: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setUploadedFile(file);
+      setUploadProgress(0);
+    }
+  };
+
+  const handleFileUploadClick = () => {
+    document.getElementById('file-input')?.click();
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      setUploadedFile(file);
+      setUploadProgress(0);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,11 +73,22 @@ export default function NewBookPage() {
       const data = await response.json();
       console.log('Book created:', data.book);
       
+      // TODO: Upload file to storage if selected
+      if (uploadedFile) {
+        console.log('File upload would happen here:', uploadedFile.name);
+        // Simulate upload progress
+        for (let i = 0; i <= 100; i += 10) {
+          setUploadProgress(i);
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+      }
+      
       // Redirect to books list
       router.push('/books');
     } catch (error) {
       console.error('Error creating book:', error);
       alert(error instanceof Error ? error.message : 'Failed to create book');
+      setUploadProgress(0);
     } finally {
       setIsLoading(false);
     }
@@ -163,10 +203,39 @@ export default function NewBookPage() {
             {/* File Upload */}
             <div>
               <label className="input-label">Book File (Optional)</label>
-              <div className="border-2 border-dashed border-stroke rounded-card p-8 text-center hover:border-burgundy transition-smooth cursor-pointer">
+              <input
+                id="file-input"
+                type="file"
+                onChange={handleFileChange}
+                accept=".pdf,.epub,.mobi,.txt"
+                className="hidden"
+              />
+              <div
+                onClick={handleFileUploadClick}
+                onDragOver={handleDragOver}
+                onDrop={handleDrop}
+                className="border-2 border-dashed border-stroke rounded-card p-8 text-center hover:border-burgundy transition-smooth cursor-pointer"
+              >
                 <Upload size={32} className="mx-auto mb-3 text-charcoal" />
                 <p className="text-sm text-charcoal mb-1">Drag and drop your file here</p>
                 <p className="text-xs text-charcoal/60">or click to browse</p>
+                {uploadedFile && (
+                  <div className="mt-4 p-3 bg-forest/10 rounded text-forest text-sm">
+                    <p className="font-medium">✓ File selected: {uploadedFile.name}</p>
+                    <p className="text-xs mt-1">Size: {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB</p>
+                  </div>
+                )}
+                {uploadProgress > 0 && uploadProgress < 100 && (
+                  <div className="mt-4">
+                    <div className="w-full bg-stroke rounded-full h-2">
+                      <div
+                        className="bg-burgundy h-2 rounded-full transition-all"
+                        style={{ width: `${uploadProgress}%` }}
+                      />
+                    </div>
+                    <p className="text-xs text-charcoal mt-2">{uploadProgress}% uploaded</p>
+                  </div>
+                )}
               </div>
             </div>
 

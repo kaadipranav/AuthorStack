@@ -79,17 +79,21 @@ export async function PUT(
       return NextResponse.json({ error: 'Book not found' }, { status: 404 });
     }
 
-    // Update the book
+    // Update the book - build object with only fields that exist
+    const updateData: any = {
+      title,
+      author,
+      genre,
+    };
+
+    // Add optional fields only if they have values
+    if (description) updateData.description = description;
+    if (isbn) updateData.isbn = isbn;
+    if (published_date) updateData.published_date = published_date;
+
     const { data: updatedBook, error: updateError } = await supabase
       .from('books')
-      .update({
-        title,
-        author,
-        description: description || null,
-        isbn: isbn || null,
-        genre,
-        published_date: published_date || null,
-      })
+      .update(updateData)
       .eq('id', bookId)
       .eq('user_id', user.id)
       .select()
@@ -98,7 +102,7 @@ export async function PUT(
     if (updateError) {
       console.error('Error updating book:', updateError);
       return NextResponse.json(
-        { error: 'Failed to update book', details: updateError.message },
+        { error: 'Failed to update book: ' + updateError.message },
         { status: 500 }
       );
     }
