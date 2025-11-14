@@ -11,9 +11,10 @@ interface FeatureCardProps {
   description: string;
   stat: string;
   delay?: number;
+  screenshot?: string;
 }
 
-export function FeatureCard({ icon, title, description, stat, delay = 0 }: FeatureCardProps) {
+export function FeatureCard({ icon, title, description, stat, delay = 0, screenshot }: FeatureCardProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -68,6 +69,19 @@ export function FeatureCard({ icon, title, description, stat, delay = 0 }: Featu
         transition={{ duration: 0.3 }}
       />
 
+      {/* Screenshot preview on hover */}
+      {screenshot && (
+        <motion.div
+          className="absolute inset-0 rounded-card overflow-hidden opacity-0 flex items-center justify-center bg-gradient-to-br from-burgundy/5 to-ink/5"
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="w-32 h-20 bg-surface border border-stroke/50 rounded-sm flex items-center justify-center text-xs text-charcoal font-mono">
+            {screenshot}
+          </div>
+        </motion.div>
+      )}
+
       <div className="relative z-10">
         {/* Icon container with tilt effect */}
         <motion.div
@@ -92,17 +106,19 @@ export function FeatureCard({ icon, title, description, stat, delay = 0 }: Featu
           <span className="inline-block px-3 py-1 bg-glass rounded text-xs font-medium text-burgundy">
             {stat}
           </span>
-          <motion.div
-            className="h-0.5 bg-burgundy"
-            initial={{ width: 0 }}
-            whileHover={{ width: 20 }}
-            transition={{
-              type: 'spring',
-              stiffness: 300,
-              damping: 10,
-              duration: 0.3
-            }}
-          />
+          {!screenshot && (
+            <motion.div
+              className="h-0.5 bg-burgundy"
+              initial={{ width: 0 }}
+              whileHover={{ width: 20 }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 10,
+                duration: 0.3
+              }}
+            />
+          )}
         </div>
       </div>
 

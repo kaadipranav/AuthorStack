@@ -13,24 +13,28 @@ const features = [
     title: 'Unified Dashboard',
     description: 'See all your sales from Amazon KDP, Gumroad, Apple Books, and more in one elegant view',
     stat: '10+ platforms',
+    screenshot: '📊 Live data',
   },
   {
     icon: <Target size={24} />,
     title: 'Competitor Tracking',
     description: 'Monitor competitor prices and rankings. Get instant alerts when they make changes',
     stat: 'Real-time alerts',
+    screenshot: '🎯 Price watch',
   },
   {
     icon: <Rocket size={24} />,
     title: 'Launch Checklists',
     description: 'Pre-built 30/60/90 day templates ensure you never miss a critical launch task',
     stat: '50+ tasks',
+    screenshot: '✓ 30/60/90d',
   },
   {
     icon: <Zap size={24} />,
     title: 'A/B Testing',
     description: 'Test different covers, titles, and descriptions to find what sells best',
     stat: 'Boost sales 30%',
+    screenshot: '⚡ Test results',
   },
 ];
 
@@ -110,7 +114,7 @@ export function Features() {
             viewport={{ once: true, margin: '-100px' }}
           >
             {features.map((feature, idx) => (
-              <FeatureCard key={idx} {...feature} delay={idx} />
+              <FeatureCard key={idx} {...feature} delay={idx} screenshot={feature.screenshot} />
             ))}
           </motion.div>
           

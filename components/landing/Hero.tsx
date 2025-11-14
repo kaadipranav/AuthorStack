@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/Button';
-import { fadeInUp, staggerContainer, floatingAnimation } from '@/lib/animations';
+import { CoverCarousel } from './CoverCarousel';
+import { MockRevenueCard } from './MockRevenueCard';
+import { fadeInUp, staggerContainer } from '@/lib/animations';
 import { useEffect, useState } from 'react';
 
 export function Hero() {
@@ -82,6 +84,12 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen bg-paper paper-texture overflow-hidden pt-32 pb-20">
+      {/* Vignette effect */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/5" />
+      <div className="absolute inset-0 pointer-events-none bg-radial-gradient" style={{
+        background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.05) 100%)'
+      }} />
+
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating pages */}
@@ -94,10 +102,21 @@ export function Hero() {
             transition: {
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut"
-            }
+              ease: 'easeInOut',
+            },
           }}
-        />
+        >
+          {/* subtle page lines */}
+          <div className="absolute inset-2 flex flex-col justify-between">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <span
+                key={i}
+                className="block h-px w-full bg-burgundy/40 last:hidden"
+                style={{ opacity: (i + 1) % 2 === 0 ? 0.25 : 0.4 }}
+              />
+            ))}
+          </div>
+        </motion.div>
         <motion.div
           className="absolute w-24 h-32 bg-surface/50 border border-burgundy/60 rounded-sm shadow-sm"
           style={{ top: '60%', left: '5%' }}
@@ -107,11 +126,22 @@ export function Hero() {
             transition: {
               duration: 10,
               repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1
-            }
+              ease: 'easeInOut',
+              delay: 1,
+            },
           }}
-        />
+        >
+          {/* subtle page lines */}
+          <div className="absolute inset-2 flex flex-col justify-between">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span
+                key={i}
+                className="block h-px w-full bg-burgundy/30 last:hidden"
+                style={{ opacity: (i + 1) % 2 === 0 ? 0.2 : 0.35 }}
+              />
+            ))}
+          </div>
+        </motion.div>
         
         {/* Ink blot decorations */}
         <div className="absolute w-96 h-96 bg-burgundy opacity-5 rounded-full blur-3xl" style={{ top: '-10%', right: '-5%' }} />
@@ -174,6 +204,24 @@ export function Hero() {
             </Button>
           </motion.div>
 
+          {/* Live Revenue Preview */}
+          <motion.div
+            variants={fadeInUp}
+            className="mt-12 mb-12"
+          >
+            <p className="text-charcoal text-sm font-medium mb-6">See what your dashboard looks like:</p>
+            <MockRevenueCard />
+          </motion.div>
+
+          {/* Featured Books Carousel */}
+          <motion.div
+            variants={fadeInUp}
+            className="mt-16"
+          >
+            <p className="text-center text-charcoal text-sm font-medium mb-8">Trusted by authors like:</p>
+            <CoverCarousel />
+          </motion.div>
+
           {/* Trust indicators */}
           <motion.div
             variants={fadeInUp}
@@ -197,7 +245,7 @@ export function Hero() {
         {/* Hero illustration - Desk to Dashboard morphing concept */}
         <motion.div
           variants={fadeInUp}
-          className="mt-32 lg:mt-40 relative h-[32rem] lg:h-[38rem] bg-gradient-to-br from-burgundy/5 to-ink/5 rounded-lg border border-stroke overflow-hidden"
+          className="mt-20 lg:mt-32 relative h-[32rem] lg:h-[38rem] bg-gradient-to-br from-burgundy/5 to-ink/5 rounded-lg border border-stroke overflow-hidden"
         >
           <svg
             viewBox="0 0 800 400"
@@ -227,6 +275,7 @@ export function Hero() {
               <line x1="550" y1="100" x2="550" y2="350" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
               <line x1="650" y1="100" x2="650" y2="350" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
               {/* Dashboard data points */}
+              <polyline points="480 125, 510 135, 540 128" fill="none" stroke="#8A1B2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <circle cx="480" cy="125" r="3" fill="#8A1B2E" />
               <circle cx="510" cy="135" r="3" fill="#8A1B2E" />
               <circle cx="540" cy="128" r="3" fill="#8A1B2E" />
@@ -252,6 +301,10 @@ export function Hero() {
               >
                 <polygon points="0 0, 10 3, 0 6" fill="#8A1B2E" />
               </marker>
+              <radialGradient id="vignetteGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="transparent" />
+                <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
+              </radialGradient>
             </defs>
           </svg>
         </motion.div>

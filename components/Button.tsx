@@ -18,7 +18,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'font-medium rounded-card transition-smooth duration-normal focus:outline-none focus:ring-3 focus:ring-burgundy focus:ring-offset-2 inline-flex items-center justify-center gap-2';
+    'font-medium rounded-card transition-smooth duration-normal focus:outline-none focus:ring-3 focus:ring-burgundy focus:ring-offset-2 inline-flex items-center justify-center gap-2 active:scale-95';
 
   const variants = {
     primary: 'bg-burgundy text-white hover:bg-opacity-90 active:bg-opacity-80',

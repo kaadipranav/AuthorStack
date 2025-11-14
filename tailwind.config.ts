@@ -14,6 +14,7 @@ const config: Config = {
         ink: '#11110F',          // near-black ink text
         charcoal: '#3C3B39',     // secondary text
         burgundy: '#8A1B2E',     // deep burgundy accent
+        'burgundy-dark': '#7a1225', // darker burgundy for contrast (4.5:1 on paper)
         tannin: '#6B3A2E',       // complementary tannin
         forest: '#1F6F4F',       // muted forest green (success)
         amber: '#C79B17',        // desaturated amber (warning)
