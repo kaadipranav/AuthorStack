@@ -7,213 +7,287 @@
       - generic [ref=e4]:
         - link "AuthorStack" [ref=e5] [cursor=pointer]:
           - /url: /
-          - img [ref=e6]
-          - generic [ref=e9]: AuthorStack
-        - generic [ref=e10]:
-          - link "Login" [ref=e11] [cursor=pointer]:
+          - img "AuthorStack" [ref=e6]
+        - generic [ref=e7]:
+          - link "Login" [ref=e8] [cursor=pointer]:
             - /url: /auth/login
-            - button "Login" [ref=e12]
-          - link "Get Started Free" [ref=e13] [cursor=pointer]:
+            - button "Login" [ref=e9]
+          - link "Get Started Free" [ref=e10] [cursor=pointer]:
             - /url: /auth/signup
-            - button "Get Started Free" [ref=e14]
-    - main [ref=e15]:
-      - generic [ref=e17]:
-        - generic [ref=e18]:
-          - generic [ref=e21]: Join 500+ indie authors
-          - heading "Turn your author journey into a well-oiled publishing engine." [level=1] [ref=e22]
-          - paragraph [ref=e23]: Bring your drafts, sales, and launches together — beautifully organized for indie authors.
-          - generic [ref=e24]:
-            - link "Start Free Trial" [ref=e25] [cursor=pointer]:
+            - button "Get Started Free" [ref=e11]
+    - main [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - generic [ref=e18]: Join 500+ indie authors
+          - heading "Turn your author journey into a well-oiled publishing engine." [level=1] [ref=e19]
+          - paragraph [ref=e20]: Bring your drafts, sales, and launches together — beautifully organized for indie authors.
+          - generic [ref=e21]:
+            - link "Start Free Trial" [ref=e22] [cursor=pointer]:
               - /url: /auth/signup
-              - button "Start Free Trial" [ref=e26]:
+              - button "Start Free Trial" [ref=e23]:
                 - text: Start Free Trial
-                - img [ref=e27]
-            - button "View Live Demo" [ref=e29] [cursor=pointer]:
-              - img [ref=e30]
+                - img [ref=e24]
+            - button "View Live Demo" [ref=e26] [cursor=pointer]:
+              - img [ref=e27]
               - text: View Live Demo
-          - generic [ref=e32]:
-            - generic [ref=e33]:
-              - generic [ref=e34]: ✓
-              - generic [ref=e35]: No credit card required
-            - generic [ref=e36]:
-              - generic [ref=e37]: ✓
-              - generic [ref=e38]: 14-day free trial
-            - generic [ref=e39]:
-              - generic [ref=e40]: ✓
-              - generic [ref=e41]: Cancel anytime
-        - img [ref=e43]
-      - generic [ref=e54]:
-        - img [ref=e55]
-        - generic [ref=e57]:
-          - generic [ref=e58]:
-            - heading "Everything You Need to Succeed" [level=2] [ref=e59]
-            - paragraph [ref=e60]: Built by authors, for authors. Every feature designed to save you time and grow your revenue.
-          - generic [ref=e62]:
-            - generic [ref=e63]:
-              - generic [ref=e65]:
-                - img [ref=e68]
-                - heading "Unified Dashboard" [level=3] [ref=e71]
-                - paragraph [ref=e72]: See all your sales from Amazon KDP, Gumroad, Apple Books, and more in one elegant view
-                - generic [ref=e74]: 10+ platforms
-              - img [ref=e75]
-            - generic [ref=e77]:
-              - generic [ref=e79]:
-                - img [ref=e82]
-                - heading "Competitor Tracking" [level=3] [ref=e86]
-                - paragraph [ref=e87]: Monitor competitor prices and rankings. Get instant alerts when they make changes
-                - generic [ref=e89]: Real-time alerts
-              - img [ref=e90]
-            - generic [ref=e92]:
-              - generic [ref=e94]:
-                - img [ref=e97]
-                - heading "Launch Checklists" [level=3] [ref=e102]
-                - paragraph [ref=e103]: Pre-built 30/60/90 day templates ensure you never miss a critical launch task
-                - generic [ref=e105]: 50+ tasks
-              - img [ref=e106]
-            - generic [ref=e108]:
-              - generic [ref=e110]:
-                - img [ref=e113]
-                - heading "A/B Testing" [level=3] [ref=e115]
-                - paragraph [ref=e116]: Test different covers, titles, and descriptions to find what sells best
-                - generic [ref=e118]: Boost sales 30%
-              - img [ref=e119]
-        - img [ref=e123]
-      - generic [ref=e125]:
-        - img [ref=e126]
-        - generic [ref=e128]:
-          - generic [ref=e129]:
-            - heading "Simple, Transparent Pricing" [level=2] [ref=e130]
-            - paragraph [ref=e131]: Start free, upgrade as you grow. No hidden fees.
-          - generic [ref=e132]:
-            - generic [ref=e133]:
-              - generic [ref=e135]:
-                - heading "Free" [level=3] [ref=e136]
-                - generic [ref=e137]: $0
-                - list [ref=e138]:
-                  - listitem [ref=e139]:
-                    - img [ref=e140]
-                    - generic [ref=e142]: 1 Book
-                  - listitem [ref=e143]:
-                    - img [ref=e144]
-                    - generic [ref=e146]: 1 Platform
-                  - listitem [ref=e147]:
-                    - img [ref=e148]
-                    - generic [ref=e150]: Basic Dashboard
-                  - listitem [ref=e151]:
-                    - img [ref=e152]
-                    - generic [ref=e154]: Launch Checklist
-                - link "Start Free →" [ref=e155] [cursor=pointer]:
+          - generic [ref=e29]:
+            - paragraph [ref=e30]: "See what your dashboard looks like:"
+            - generic [ref=e31]:
+              - generic [ref=e32]:
+                - img [ref=e33]
+                - generic [ref=e35]: Live now
+              - generic [ref=e36]:
+                - heading "Total Revenue" [level=3] [ref=e37]
+                - generic [ref=e38]:
+                  - img [ref=e39]
+                  - generic [ref=e42]: 12.5%
+              - generic [ref=e43]:
+                - generic [ref=e44]: $2,847.50
+                - paragraph [ref=e45]: Last 30 days • Real-time data
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - generic [ref=e49]: Amazon KDP
+                  - generic [ref=e50]: $1,420
+                - generic [ref=e51]:
+                  - generic [ref=e52]: Gumroad
+                  - generic [ref=e53]: $892
+                - generic [ref=e54]:
+                  - generic [ref=e55]: Apple Books
+                  - generic [ref=e56]: $535
+              - generic [ref=e57]:
+                - img [ref=e58]
+                - generic [ref=e63]:
+                  - generic [ref=e64]: 487+
+                  - text: authors tracking today
+          - generic [ref=e65]:
+            - paragraph [ref=e66]: "Trusted by authors like:"
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - generic [ref=e71] [cursor=pointer]:
+                  - heading "Silver Thorns" [level=3] [ref=e72]
+                  - paragraph [ref=e73]: Emma Rose
+                - generic [ref=e76] [cursor=pointer]:
+                  - heading "Letters to P" [level=3] [ref=e77]
+                  - paragraph [ref=e78]: James Wright
+                - generic [ref=e81] [cursor=pointer]:
+                  - heading "The Last Echo" [level=3] [ref=e82]
+                  - paragraph [ref=e83]: Sarah Chen
+                - generic [ref=e86] [cursor=pointer]:
+                  - heading "Midnight Garden" [level=3] [ref=e87]
+                  - paragraph [ref=e88]: Alex Morgan
+                - generic [ref=e91] [cursor=pointer]:
+                  - heading "Whispered Secrets" [level=3] [ref=e92]
+                  - paragraph [ref=e93]: Nina Patel
+                - generic [ref=e96] [cursor=pointer]:
+                  - heading "Echoes of Tomorrow" [level=3] [ref=e97]
+                  - paragraph [ref=e98]: Marcus Lee
+              - button [ref=e99] [cursor=pointer]:
+                - img [ref=e100]
+              - button [ref=e102] [cursor=pointer]:
+                - img [ref=e103]
+              - generic [ref=e105]:
+                - button [ref=e106] [cursor=pointer]
+                - button [ref=e107] [cursor=pointer]
+                - button [ref=e108] [cursor=pointer]
+                - button [ref=e109] [cursor=pointer]
+                - button [ref=e110] [cursor=pointer]
+                - button [ref=e111] [cursor=pointer]
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - generic [ref=e114]: ✓
+              - generic [ref=e115]: No credit card required
+            - generic [ref=e116]:
+              - generic [ref=e117]: ✓
+              - generic [ref=e118]: 14-day free trial
+            - generic [ref=e119]:
+              - generic [ref=e120]: ✓
+              - generic [ref=e121]: Cancel anytime
+        - img [ref=e124]:
+          - generic [ref=e139]: ↑ 12%
+      - generic [ref=e141]:
+        - img [ref=e142]
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - heading "Everything You Need to Succeed" [level=2] [ref=e146]
+            - paragraph [ref=e147]: Built by authors, for authors. Every feature designed to save you time and grow your revenue.
+          - generic [ref=e149]:
+            - generic [ref=e150]:
+              - generic [ref=e153]: 📊 Live data
+              - generic [ref=e154]:
+                - img [ref=e157]
+                - heading "Unified Dashboard" [level=3] [ref=e160]
+                - paragraph [ref=e161]: See all your sales from Amazon KDP, Gumroad, Apple Books, and more in one elegant view
+                - generic [ref=e163]: 10+ platforms
+              - img [ref=e164]
+            - generic [ref=e166]:
+              - generic [ref=e169]: 🎯 Price watch
+              - generic [ref=e170]:
+                - img [ref=e173]
+                - heading "Competitor Tracking" [level=3] [ref=e177]
+                - paragraph [ref=e178]: Monitor competitor prices and rankings. Get instant alerts when they make changes
+                - generic [ref=e180]: Real-time alerts
+              - img [ref=e181]
+            - generic [ref=e183]:
+              - generic [ref=e186]: ✓ 30/60/90d
+              - generic [ref=e187]:
+                - img [ref=e190]
+                - heading "Launch Checklists" [level=3] [ref=e195]
+                - paragraph [ref=e196]: Pre-built 30/60/90 day templates ensure you never miss a critical launch task
+                - generic [ref=e198]: 50+ tasks
+              - img [ref=e199]
+            - generic [ref=e201]:
+              - generic [ref=e204]: ⚡ Test results
+              - generic [ref=e205]:
+                - img [ref=e208]
+                - heading "A/B Testing" [level=3] [ref=e210]
+                - paragraph [ref=e211]: Test different covers, titles, and descriptions to find what sells best
+                - generic [ref=e213]: Boost sales 30%
+              - img [ref=e214]
+        - img [ref=e218]
+      - generic [ref=e220]:
+        - img [ref=e221]
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - heading "Simple, Transparent Pricing" [level=2] [ref=e225]
+            - paragraph [ref=e226]: Start free, upgrade as you grow. No hidden fees.
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - generic [ref=e230]:
+                - heading "Free" [level=3] [ref=e231]
+                - generic [ref=e232]: $0
+                - list [ref=e233]:
+                  - listitem [ref=e234]:
+                    - img [ref=e235]
+                    - generic [ref=e237]: 1 Book
+                  - listitem [ref=e238]:
+                    - img [ref=e239]
+                    - generic [ref=e241]: 1 Platform
+                  - listitem [ref=e242]:
+                    - img [ref=e243]
+                    - generic [ref=e245]: Basic Dashboard
+                  - listitem [ref=e246]:
+                    - img [ref=e247]
+                    - generic [ref=e249]: Launch Checklist
+                - link "Start Free →" [ref=e250] [cursor=pointer]:
                   - /url: /pricing
-                  - button "Start Free →" [ref=e156]:
+                  - button "Start Free →" [ref=e251]:
                     - text: Start Free
-                    - generic [ref=e157]: →
-              - img [ref=e158]
-            - generic [ref=e161]:
-              - generic [ref=e162]: Most Popular
-              - generic [ref=e164]:
-                - heading "Pro" [level=3] [ref=e165]
-                - generic [ref=e166]: $19/month
-                - list [ref=e167]:
-                  - listitem [ref=e168]:
-                    - img [ref=e169]
-                    - generic [ref=e171]: Unlimited Books
-                  - listitem [ref=e172]:
-                    - img [ref=e173]
-                    - generic [ref=e175]: All Platforms
-                  - listitem [ref=e176]:
-                    - img [ref=e177]
-                    - generic [ref=e179]: Competitor Tracking
-                  - listitem [ref=e180]:
-                    - img [ref=e181]
-                    - generic [ref=e183]: A/B Testing
-                  - listitem [ref=e184]:
-                    - img [ref=e185]
-                    - generic [ref=e187]: Email Alerts
-                  - listitem [ref=e188]:
-                    - img [ref=e189]
-                    - generic [ref=e191]: Priority Support
-                - link "Start 14-Day Trial" [ref=e192] [cursor=pointer]:
+                    - generic [ref=e252]: →
+              - img [ref=e253]
+            - generic [ref=e256]:
+              - generic [ref=e257]: Most Popular
+              - generic [ref=e259]:
+                - heading "Pro" [level=3] [ref=e260]
+                - generic [ref=e261]: $19/month
+                - list [ref=e262]:
+                  - listitem [ref=e263]:
+                    - img [ref=e264]
+                    - generic [ref=e266]: Unlimited Books
+                  - listitem [ref=e267]:
+                    - img [ref=e268]
+                    - generic [ref=e270]: All Platforms
+                  - listitem [ref=e271]:
+                    - img [ref=e272]
+                    - generic [ref=e274]: Competitor Tracking
+                  - listitem [ref=e275]:
+                    - img [ref=e276]
+                    - generic [ref=e278]: A/B Testing
+                  - listitem [ref=e279]:
+                    - img [ref=e280]
+                    - generic [ref=e282]: Email Alerts
+                  - listitem [ref=e283]:
+                    - img [ref=e284]
+                    - generic [ref=e286]: Priority Support
+                - link "Start 14-Day Trial" [ref=e287] [cursor=pointer]:
                   - /url: /auth/signup
-                  - button "Start 14-Day Trial" [ref=e193]
-              - img [ref=e194]
-            - generic [ref=e197]:
-              - generic [ref=e199]:
-                - heading "Enterprise" [level=3] [ref=e200]
-                - generic [ref=e201]: $49/month
-                - list [ref=e202]:
-                  - listitem [ref=e203]:
-                    - img [ref=e204]
-                    - generic [ref=e206]: Everything in Pro
-                  - listitem [ref=e207]:
-                    - img [ref=e208]
-                    - generic [ref=e210]: Custom Integrations
-                  - listitem [ref=e211]:
-                    - img [ref=e212]
-                    - generic [ref=e214]: White-label Reports
-                  - listitem [ref=e215]:
-                    - img [ref=e216]
-                    - generic [ref=e218]: API Access
-                  - listitem [ref=e219]:
-                    - img [ref=e220]
-                    - generic [ref=e222]: Dedicated Manager
-                - link "Contact Sales →" [ref=e223] [cursor=pointer]:
+                  - button "Start 14-Day Trial" [ref=e288]
+              - img [ref=e289]
+            - generic [ref=e292]:
+              - generic [ref=e294]:
+                - heading "Enterprise" [level=3] [ref=e295]
+                - generic [ref=e296]: $49/month
+                - list [ref=e297]:
+                  - listitem [ref=e298]:
+                    - img [ref=e299]
+                    - generic [ref=e301]: Everything in Pro
+                  - listitem [ref=e302]:
+                    - img [ref=e303]
+                    - generic [ref=e305]: Custom Integrations
+                  - listitem [ref=e306]:
+                    - img [ref=e307]
+                    - generic [ref=e309]: White-label Reports
+                  - listitem [ref=e310]:
+                    - img [ref=e311]
+                    - generic [ref=e313]: API Access
+                  - listitem [ref=e314]:
+                    - img [ref=e315]
+                    - generic [ref=e317]: Dedicated Manager
+                - link "Contact Sales →" [ref=e318] [cursor=pointer]:
                   - /url: /pricing
-                  - button "Contact Sales →" [ref=e224]:
+                  - button "Contact Sales →" [ref=e319]:
                     - text: Contact Sales
-                    - generic [ref=e225]: →
-              - img [ref=e226]
-        - img [ref=e229]
-      - generic [ref=e233]:
-        - heading "Ready to Grow Your Book Business?" [level=2] [ref=e234]
-        - paragraph [ref=e235]: Join hundreds of indie authors who are using AuthorStack to manage their sales, track competitors, and launch with confidence.
-        - link "Start Free Today" [ref=e237] [cursor=pointer]:
+                    - generic [ref=e320]: →
+              - img [ref=e321]
+        - img [ref=e324]
+      - generic [ref=e328]:
+        - generic [ref=e329]:
+          - img [ref=e330]
+          - generic [ref=e333]: Limited spots available in beta
+        - heading "Ready to Grow Your Book Business?" [level=2] [ref=e334]
+        - paragraph [ref=e335]: Join 487+ indie authors who are already using AuthorStack to manage their sales, track competitors, and launch with confidence.
+        - generic [ref=e336]:
+          - generic [ref=e337]:
+            - generic [ref=e338]: ⭐
+            - generic [ref=e339]: 4.9/5 from beta users
+          - generic [ref=e341]:
+            - generic [ref=e342]: 🚀
+            - generic [ref=e343]: 30% avg revenue boost
+        - link "Start Free Today" [ref=e345] [cursor=pointer]:
           - /url: /auth/signup
-          - button "Start Free Today" [ref=e238]:
-            - generic [ref=e239]:
+          - button "Start Free Today" [ref=e346]:
+            - generic [ref=e347]:
               - text: Start Free Today
-              - img [ref=e241]
-        - paragraph [ref=e243]: No credit card required. 14-day free trial. Cancel anytime.
-    - contentinfo [ref=e244]:
-      - generic [ref=e245]:
-        - generic [ref=e246]:
-          - generic [ref=e247]:
-            - generic [ref=e248]:
-              - img [ref=e249]
-              - generic [ref=e252]: AuthorStack
-            - paragraph [ref=e253]: The all-in-one dashboard for indie authors to manage, track, and grow their book business.
-          - generic [ref=e254]:
-            - heading "Product" [level=4] [ref=e255]
-            - list [ref=e256]:
-              - listitem [ref=e257]:
-                - link "Features" [ref=e258] [cursor=pointer]:
+              - img [ref=e349]
+        - paragraph [ref=e351]: No credit card required. 14-day free trial. Cancel anytime.
+    - contentinfo [ref=e352]:
+      - generic [ref=e353]:
+        - generic [ref=e354]:
+          - generic [ref=e355]:
+            - img "AuthorStack" [ref=e357]
+            - paragraph [ref=e358]: The all-in-one dashboard for indie authors to manage, track, and grow their book business.
+          - generic [ref=e359]:
+            - heading "Product" [level=4] [ref=e360]
+            - list [ref=e361]:
+              - listitem [ref=e362]:
+                - link "Features" [ref=e363] [cursor=pointer]:
                   - /url: "#features"
-              - listitem [ref=e259]:
-                - link "Pricing" [ref=e260] [cursor=pointer]:
+              - listitem [ref=e364]:
+                - link "Pricing" [ref=e365] [cursor=pointer]:
                   - /url: "#pricing"
-              - listitem [ref=e261]:
-                - link "Security" [ref=e262] [cursor=pointer]:
+              - listitem [ref=e366]:
+                - link "Security" [ref=e367] [cursor=pointer]:
                   - /url: "#"
-          - generic [ref=e263]:
-            - heading "Company" [level=4] [ref=e264]
-            - list [ref=e265]:
-              - listitem [ref=e266]:
-                - link "About" [ref=e267] [cursor=pointer]:
+          - generic [ref=e368]:
+            - heading "Company" [level=4] [ref=e369]
+            - list [ref=e370]:
+              - listitem [ref=e371]:
+                - link "About" [ref=e372] [cursor=pointer]:
                   - /url: "#"
-              - listitem [ref=e268]:
-                - link "Blog" [ref=e269] [cursor=pointer]:
+              - listitem [ref=e373]:
+                - link "Blog" [ref=e374] [cursor=pointer]:
                   - /url: "#"
-              - listitem [ref=e270]:
-                - link "Contact" [ref=e271] [cursor=pointer]:
+              - listitem [ref=e375]:
+                - link "Contact" [ref=e376] [cursor=pointer]:
                   - /url: "#"
-          - generic [ref=e272]:
-            - heading "Legal" [level=4] [ref=e273]
-            - list [ref=e274]:
-              - listitem [ref=e275]:
-                - link "Privacy" [ref=e276] [cursor=pointer]:
+          - generic [ref=e377]:
+            - heading "Legal" [level=4] [ref=e378]
+            - list [ref=e379]:
+              - listitem [ref=e380]:
+                - link "Privacy" [ref=e381] [cursor=pointer]:
                   - /url: "#"
-              - listitem [ref=e277]:
-                - link "Terms" [ref=e278] [cursor=pointer]:
+              - listitem [ref=e382]:
+                - link "Terms" [ref=e383] [cursor=pointer]:
                   - /url: "#"
-        - paragraph [ref=e280]: © 2024 AuthorStack. All rights reserved.
-  - alert [ref=e281]
+        - paragraph [ref=e385]: © 2024 AuthorStack. All rights reserved.
+  - alert [ref=e386]
 ```
