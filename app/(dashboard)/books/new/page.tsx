@@ -11,7 +11,6 @@ export default function NewBookPage() {
   const [formData, setFormData] = useState({
     title: '',
     author: '',
-    description: '',
     isbn: '',
     genre: '',
     publishedDate: '',
@@ -134,19 +133,6 @@ export default function NewBookPage() {
                 onChange={handleChange}
                 required
                 placeholder="Enter author name"
-                className="input-field"
-              />
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="input-label">Description</label>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                placeholder="Enter book description"
-                rows={4}
                 className="input-field"
               />
             </div>

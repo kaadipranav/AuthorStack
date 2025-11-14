@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { title, author, description, isbn, genre, publishedDate } = body;
+    const { title, author, isbn, genre, publishedDate } = body;
 
     if (!title || !author || !genre) {
       return NextResponse.json(
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create book - build object with only fields that exist
+    // Create book - only use fields that exist in the database
     const bookData: any = {
       user_id: user.id,
       title,
@@ -33,7 +33,6 @@ export async function POST(request: NextRequest) {
     };
 
     // Add optional fields only if they have values
-    if (description) bookData.description = description;
     if (isbn) bookData.isbn = isbn;
     if (publishedDate) bookData.published_date = publishedDate;
 

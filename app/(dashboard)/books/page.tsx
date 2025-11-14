@@ -10,7 +10,6 @@ interface Book {
   title: string;
   author: string;
   genre: string;
-  description?: string;
   isbn?: string;
   published_date?: string;
   created_at: string;
@@ -126,10 +125,6 @@ export default function BooksPage() {
                   )}
                 </div>
               </div>
-
-              {book.description && (
-                <p className="text-sm text-charcoal mb-4 line-clamp-2">{book.description}</p>
-              )}
 
               {book.published_date && (
                 <p className="text-xs text-charcoal/60 mb-4">

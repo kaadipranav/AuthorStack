@@ -10,7 +10,6 @@ interface Book {
   id: string;
   title: string;
   author: string;
-  description?: string;
   isbn?: string;
   genre: string;
   published_date?: string;
@@ -25,7 +24,6 @@ export default function EditBookPage() {
     id: '',
     title: '',
     author: '',
-    description: '',
     isbn: '',
     genre: '',
     published_date: '',
@@ -152,19 +150,6 @@ export default function EditBookPage() {
                 onChange={handleChange}
                 required
                 placeholder="Enter author name"
-                className="input-field"
-              />
-            </div>
-
-            {/* Description */}
-            <div>
-              <label className="input-label">Description</label>
-              <textarea
-                name="description"
-                value={formData.description || ''}
-                onChange={handleChange}
-                placeholder="Enter book description"
-                rows={4}
                 className="input-field"
               />
             </div>

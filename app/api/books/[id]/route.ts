@@ -58,7 +58,7 @@ export async function PUT(
 
     const bookId = params.id;
     const body = await request.json();
-    const { title, author, description, isbn, genre, published_date } = body;
+    const { title, author, isbn, genre, published_date } = body;
 
     if (!title || !author || !genre) {
       return NextResponse.json(
@@ -79,7 +79,7 @@ export async function PUT(
       return NextResponse.json({ error: 'Book not found' }, { status: 404 });
     }
 
-    // Update the book - build object with only fields that exist
+    // Update the book - only use fields that exist in the database
     const updateData: any = {
       title,
       author,
@@ -87,7 +87,6 @@ export async function PUT(
     };
 
     // Add optional fields only if they have values
-    if (description) updateData.description = description;
     if (isbn) updateData.isbn = isbn;
     if (published_date) updateData.published_date = published_date;
 
