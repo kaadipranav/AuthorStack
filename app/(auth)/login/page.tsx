@@ -1,5 +1,6 @@
 import { LoginForm } from '@/components/auth/LoginForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Login - AuthorStack',
@@ -10,6 +11,14 @@ export default function LoginPage() {
   return (
     <div className="w-full max-w-md">
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/logo.png"
+            alt="AuthorStack"
+            width={48}
+            height={48}
+          />
+        </div>
         <h1 className="text-3xl font-bold text-center mb-2">Welcome Back</h1>
         <p className="text-center text-gray-600 mb-8">Sign in to your AuthorStack account</p>
 

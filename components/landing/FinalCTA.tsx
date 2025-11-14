@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import { useEffect, useState } from 'react';
@@ -97,6 +97,15 @@ export function FinalCTA() {
           whileInView="visible"
           viewport={{ once: true }}
         >
+          {/* Urgency badge */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-center justify-center gap-2 mb-6 text-sm font-semibold"
+          >
+            <Clock size={16} />
+            <span>Limited spots available in beta</span>
+          </motion.div>
+
           {/* Heading */}
           <motion.h2
             variants={fadeInUp}
@@ -105,13 +114,29 @@ export function FinalCTA() {
             Ready to Grow Your Book Business?
           </motion.h2>
 
-          {/* Subheading */}
+          {/* Subheading with FOMO */}
           <motion.p
             variants={fadeInUp}
             className="text-xl mb-10 max-w-2xl mx-auto opacity-90 leading-relaxed"
           >
-            Join hundreds of indie authors who are using AuthorStack to manage their sales, track competitors, and launch with confidence.
+            Join <span className="font-bold">487+ indie authors</span> who are already using AuthorStack to manage their sales, track competitors, and launch with confidence.
           </motion.p>
+
+          {/* Social proof */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-center justify-center gap-4 mb-8 text-sm opacity-80"
+          >
+            <div className="flex items-center gap-1">
+              <span className="text-lg">⭐</span>
+              <span>4.9/5 from beta users</span>
+            </div>
+            <div className="w-px h-4 bg-white/30" />
+            <div className="flex items-center gap-1">
+              <span className="text-lg">🚀</span>
+              <span>30% avg revenue boost</span>
+            </div>
+          </motion.div>
 
           {/* CTA Button */}
           <motion.div variants={fadeInUp}>

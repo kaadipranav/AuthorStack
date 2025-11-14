@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
@@ -78,14 +79,16 @@ export function Sidebar({ subscriptionTier = 'free' }: SidebarProps) {
 
       {/* Logo */}
       <div className="h-16 flex items-center justify-center border-b border-stroke">
-        <Link href="/dashboard" className="flex items-center gap-2">
-          {isCollapsed ? (
-            <BookOpen className="w-6 h-6 text-burgundy" />
-          ) : (
-            <>
-              <BookOpen className="w-6 h-6 text-burgundy" />
-              <span className="font-heading text-xl font-bold text-ink">AuthorStack</span>
-            </>
+        <Link href="/dashboard" className="flex items-center gap-2 hover:opacity-80 transition-smooth">
+          <Image
+            src="/logo.png"
+            alt="AuthorStack"
+            width={isCollapsed ? 28 : 32}
+            height={isCollapsed ? 28 : 32}
+            className="transition-all"
+          />
+          {!isCollapsed && (
+            <span className="font-heading text-sm font-bold text-ink">AuthorStack</span>
           )}
         </Link>
       </div>

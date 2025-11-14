@@ -84,7 +84,7 @@ export function Features() {
   }
 
   return (
-    <section id="features" className="relative py-24 bg-paper paper-texture overflow-hidden">
+    <section id="features" className="relative py-24 bg-gradient-to-b from-paper/95 via-paper to-paper paper-texture overflow-hidden">
       <SectionDivider variant="wave" className="absolute top-0 left-0" />
 
       <div className="container-custom">

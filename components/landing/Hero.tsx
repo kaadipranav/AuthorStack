@@ -83,7 +83,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen bg-paper paper-texture overflow-hidden pt-32 pb-20">
+    <section className="relative min-h-screen bg-gradient-to-b from-paper via-paper to-paper/98 paper-texture overflow-hidden pt-32 pb-20">
       {/* Vignette effect */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/5" />
       <div className="absolute inset-0 pointer-events-none bg-radial-gradient" style={{
@@ -217,6 +217,10 @@ export function Hero() {
           <motion.div
             variants={fadeInUp}
             className="mt-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
           >
             <p className="text-center text-charcoal text-sm font-medium mb-8">Trusted by authors like:</p>
             <CoverCarousel />
@@ -241,11 +245,17 @@ export function Hero() {
             </div>
           </motion.div>
         </motion.div>
+      </div>
 
-        {/* Hero illustration - Desk to Dashboard morphing concept */}
+      {/* Hero illustration - Desk to Dashboard morphing concept */}
+      <div className="container-custom max-w-4xl mx-auto relative z-10">
         <motion.div
           variants={fadeInUp}
           className="mt-20 lg:mt-32 relative h-[32rem] lg:h-[38rem] bg-gradient-to-br from-burgundy/5 to-ink/5 rounded-lg border border-stroke overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
         >
           <svg
             viewBox="0 0 800 400"
@@ -269,16 +279,25 @@ export function Hero() {
             {/* Dashboard grid */}
             <g opacity="0.8">
               <rect x="450" y="100" width="300" height="250" fill="none" stroke="#8A1B2E" strokeWidth="2" />
+              {/* Grid lines */}
               <line x1="450" y1="150" x2="750" y2="150" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
               <line x1="450" y1="200" x2="750" y2="200" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
               <line x1="450" y1="250" x2="750" y2="250" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
               <line x1="550" y1="100" x2="550" y2="350" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
               <line x1="650" y1="100" x2="650" y2="350" stroke="#8A1B2E" strokeWidth="1" opacity="0.5" />
-              {/* Dashboard data points */}
-              <polyline points="480 125, 510 135, 540 128" fill="none" stroke="#8A1B2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="480" cy="125" r="3" fill="#8A1B2E" />
-              <circle cx="510" cy="135" r="3" fill="#8A1B2E" />
-              <circle cx="540" cy="128" r="3" fill="#8A1B2E" />
+              {/* Area fill under chart */}
+              <polygon points="480 125, 510 135, 540 128, 540 350, 480 350" fill="#8A1B2E" opacity="0.08" />
+              {/* Enhanced trend line with gradient effect */}
+              <polyline points="480 125, 510 135, 540 128" fill="none" stroke="#8A1B2E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Data point circles with glow */}
+              <circle cx="480" cy="125" r="4" fill="#8A1B2E" opacity="0.3" />
+              <circle cx="510" cy="135" r="4" fill="#8A1B2E" opacity="0.3" />
+              <circle cx="540" cy="128" r="4" fill="#8A1B2E" opacity="0.3" />
+              <circle cx="480" cy="125" r="2.5" fill="#8A1B2E" />
+              <circle cx="510" cy="135" r="2.5" fill="#8A1B2E" />
+              <circle cx="540" cy="128" r="2.5" fill="#8A1B2E" />
+              {/* Upward trend indicator */}
+              <text x="560" y="115" fontSize="12" fill="#8A1B2E" fontWeight="bold" opacity="0.8">↑ 12%</text>
             </g>
 
             {/* Arrow showing transformation */}
@@ -305,6 +324,10 @@ export function Hero() {
                 <stop offset="0%" stopColor="transparent" />
                 <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
               </radialGradient>
+              <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#8A1B2E" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#8A1B2E" stopOpacity="0" />
+              </linearGradient>
             </defs>
           </svg>
         </motion.div>

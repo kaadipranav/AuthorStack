@@ -1,10 +1,6 @@
 import Link from 'next/link';
-import { BookOpen } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/Button';
-import { Hero } from '@/components/landing/Hero';
-import { Features } from '@/components/landing/Features';
-import { Pricing } from '@/components/landing/Pricing';
-import { FinalCTA } from '@/components/landing/FinalCTA';
 import ClientHome from './ClientHome';
 
 export const metadata = {
@@ -14,13 +10,19 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-paper paper-texture">
+    <div className="min-h-screen bg-gradient-to-b from-paper via-paper to-paper/95 paper-texture">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-surface border-b border-stroke backdrop-blur-sm bg-opacity-95">
+      <nav className="sticky top-0 z-50 bg-surface/95 border-b border-stroke backdrop-blur-md bg-opacity-95">
         <div className="container-custom py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 group">
-            <BookOpen className="w-8 h-8 text-burgundy transition-smooth group-hover:scale-110" />
-            <span className="font-heading text-2xl font-bold text-ink">AuthorStack</span>
+            <Image
+              src="/logo.png"
+              alt="AuthorStack"
+              width={40}
+              height={40}
+              className="transition-smooth group-hover:scale-110"
+              priority
+            />
           </Link>
           <div className="flex gap-3">
             <Link href="/auth/login">
@@ -39,15 +41,19 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-ink text-charcoal py-12 border-t border-stroke">
+      <footer className="bg-gradient-to-b from-ink to-ink/95 text-charcoal py-12 border-t border-stroke">
         <div className="container-custom">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <BookOpen className="w-6 h-6 text-burgundy" />
-                <span className="font-heading text-lg font-bold text-white">AuthorStack</span>
+                <Image
+                  src="/logo.png"
+                  alt="AuthorStack"
+                  width={32}
+                  height={32}
+                />
               </div>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-white/80">
                 The all-in-one dashboard for indie authors to manage, track, and grow their book business.
               </p>
             </div>
