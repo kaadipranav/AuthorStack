@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 33% 97%;
+    --foreground: 60 4% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 60 4% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 60 4% 6%;
+
+    --primary: 350 69% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 33% 97%;
+    --secondary-foreground: 60 4% 6%;
+
+    --muted: 45 20% 90%;
+    --muted-foreground: 60 2% 25%;
+
+    --accent: 350 69% 32%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 53% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 60 4% 6% / 0.06;
+    --input: 60 4% 6% / 0.06;
+    --ring: 350 69% 32%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 60 4% 6%;
+    --foreground: 45 33% 97%;
+
+    --card: 60 4% 10%;
+    --card-foreground: 45 33% 97%;
+
+    --popover: 60 4% 10%;
+    --popover-foreground: 45 33% 97%;
+
+    --primary: 350 69% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 60 4% 15%;
+    --secondary-foreground: 45 33% 97%;
+
+    --muted: 60 4% 20%;
+    --muted-foreground: 60 2% 65%;
+
+    --accent: 350 69% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 53% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 33% 97% / 0.1;
+    --input: 45 33% 97% / 0.1;
+    --ring: 350 69% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  /* Typography utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  /* Skeleton loading animation */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  /* Paper texture overlay */
+  .paper-texture {
+    background-image: url('/textures/paper.png');
+    background-repeat: repeat;
+    opacity: 0.01;
+  }
+}
